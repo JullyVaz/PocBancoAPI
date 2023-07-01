@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "9OCrSOrIP8vw4lM92DgrLdwQQRJsRgUXI07oBBkfuoDq/GHqPr3BrMcO6k3/UL5epOz0q7VzPKK9feTuFQrT7A==",
+  "dgSpecHash": "YYI6GOhAGheKLpDgLmV2HudX7W1PFUjcrIJ7AfAQJrZurNJiM3L7sd5E/Jqvg3FrK16LyGkDsKElKTpGQtSsRg==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Services\\PocBancoAPI.Services.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.7\\microsoft.aspnetcore.openapi.7.0.7.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

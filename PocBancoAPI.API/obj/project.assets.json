@@ -107,6 +107,29 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "PocBancoAPI.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PocBancoAPI.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PocBancoAPI.Shared.dll": {}
+        }
+      },
+      "PocBancoAPI.ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "PocBancoAPI.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PocBancoAPI.ViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PocBancoAPI.ViewModels.dll": {}
+        }
       }
     }
   },
@@ -460,11 +483,22 @@
         "swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "PocBancoAPI.Shared/1.0.0": {
+      "type": "project",
+      "path": "../PocBancoAPI.Shared/PocBancoAPI.Shared.csproj",
+      "msbuildProject": "../PocBancoAPI.Shared/PocBancoAPI.Shared.csproj"
+    },
+    "PocBancoAPI.ViewModels/1.0.0": {
+      "type": "project",
+      "path": "../PocBancoAPI.ViewModels/PocBancoAPI.ViewModels.csproj",
+      "msbuildProject": "../PocBancoAPI.ViewModels/PocBancoAPI.ViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "Microsoft.AspNetCore.OpenApi >= 7.0.7",
+      "PocBancoAPI.ViewModels >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
@@ -495,7 +529,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj": {
+              "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

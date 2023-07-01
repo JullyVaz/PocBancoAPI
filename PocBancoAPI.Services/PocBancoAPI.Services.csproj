@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PocBancoAPI.API\PocBancoAPI.API.csproj" />
+    <ProjectReference Include="..\PocBancoAPI.ViewModels\PocBancoAPI.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>

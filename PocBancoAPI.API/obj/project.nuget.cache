@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AW6iXR4KD0TpYG479TLwc02Im7SLNR6O7zHi8b5IGenEJwYklExyzpq24/MbGH2STatNsmpyEiD1sEw8NhVrpA==",
+  "dgSpecHash": "kBdUN0CsM9i89ipAw76Rp/x6EPes+UfQbKzbq4rp6DcKUIDQWNlY79ZIWzhDdcmDd3olm3cIaa+GdeQ/prGnew==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.API\\PocBancoAPI.API.csproj",
   "expectedPackageFiles": [
