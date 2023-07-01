@@ -1,0 +1,12 @@
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\bin\Debug\net7.0\PocBancoAPI.DTOs.deps.json
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\bin\Debug\net7.0\PocBancoAPI.DTOs.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\bin\Debug\net7.0\PocBancoAPI.DTOs.pdb
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\obj\Debug\net7.0\PocBancoAPI.DTOs.csproj.AssemblyReference.cache
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\obj\Debug\net7.0\PocBancoAPI.DTOs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\obj\Debug\net7.0\PocBancoAPI.DTOs.AssemblyInfoInputs.cache
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\obj\Debug\net7.0\PocBancoAPI.DTOs.AssemblyInfo.cs
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\obj\Debug\net7.0\PocBancoAPI.DTOs.csproj.CoreCompileInputs.cache
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\obj\Debug\net7.0\PocBancoAPI.DTOs.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\obj\Debug\net7.0\refint\PocBancoAPI.DTOs.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\obj\Debug\net7.0\PocBancoAPI.DTOs.pdb
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\obj\Debug\net7.0\ref\PocBancoAPI.DTOs.dll

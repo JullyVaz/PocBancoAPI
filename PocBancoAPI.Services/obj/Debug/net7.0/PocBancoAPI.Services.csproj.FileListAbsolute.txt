@@ -1,0 +1,17 @@
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\obj\Debug\net7.0\PocBancoAPI.Services.csproj.AssemblyReference.cache
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\obj\Debug\net7.0\PocBancoAPI.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\obj\Debug\net7.0\PocBancoAPI.Services.AssemblyInfoInputs.cache
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\obj\Debug\net7.0\PocBancoAPI.Services.AssemblyInfo.cs
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\obj\Debug\net7.0\PocBancoAPI.Services.csproj.CoreCompileInputs.cache
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\bin\Debug\net7.0\PocBancoAPI.Services.deps.json
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\bin\Debug\net7.0\PocBancoAPI.Services.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\bin\Debug\net7.0\PocBancoAPI.Services.pdb
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\bin\Debug\net7.0\PocBancoAPI.Shared.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\bin\Debug\net7.0\PocBancoAPI.ViewModels.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\bin\Debug\net7.0\PocBancoAPI.ViewModels.pdb
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\bin\Debug\net7.0\PocBancoAPI.Shared.pdb
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\obj\Debug\net7.0\PocBancoAPI.Services.csproj.CopyComplete
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\obj\Debug\net7.0\PocBancoAPI.Services.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\obj\Debug\net7.0\refint\PocBancoAPI.Services.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\obj\Debug\net7.0\PocBancoAPI.Services.pdb
+C:\Projetos\PocBancoAPI\PocBancoAPI.Services\obj\Debug\net7.0\ref\PocBancoAPI.Services.dll

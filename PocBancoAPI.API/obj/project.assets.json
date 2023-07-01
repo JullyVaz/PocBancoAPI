@@ -108,6 +108,19 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "PocBancoAPI.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "PocBancoAPI.ViewModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PocBancoAPI.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PocBancoAPI.Services.dll": {}
+        }
+      },
       "PocBancoAPI.Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -484,6 +497,11 @@
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
+    "PocBancoAPI.Services/1.0.0": {
+      "type": "project",
+      "path": "../PocBancoAPI.Services/PocBancoAPI.Services.csproj",
+      "msbuildProject": "../PocBancoAPI.Services/PocBancoAPI.Services.csproj"
+    },
     "PocBancoAPI.Shared/1.0.0": {
       "type": "project",
       "path": "../PocBancoAPI.Shared/PocBancoAPI.Shared.csproj",
@@ -498,6 +516,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "Microsoft.AspNetCore.OpenApi >= 7.0.7",
+      "PocBancoAPI.Services >= 1.0.0",
       "PocBancoAPI.ViewModels >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
@@ -530,6 +549,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Services\\PocBancoAPI.Services.csproj": {
+              "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Services\\PocBancoAPI.Services.csproj"
+            },
             "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj": {
               "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj"
             }

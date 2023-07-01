@@ -4,79 +4,6 @@
     "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Services\\PocBancoAPI.Services.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.API\\PocBancoAPI.API.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.API\\PocBancoAPI.API.csproj",
-        "projectName": "PocBancoAPI.API",
-        "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.API\\PocBancoAPI.API.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.API\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
-              "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj": {
-                "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
-              "target": "Package",
-              "version": "[7.0.7, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.5.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
     "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Services\\PocBancoAPI.Services.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -101,9 +28,6 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.API\\PocBancoAPI.API.csproj": {
-                "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.API\\PocBancoAPI.API.csproj"
-              },
               "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj": {
                 "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj"
               }

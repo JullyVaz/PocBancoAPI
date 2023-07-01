@@ -1,6 +1,6 @@
 ﻿using PocBancoAPI.ViewModels;
 
-namespace PocBancoAPI.API.Interfaces
+namespace PocBancoAPI.Services.Interfaces
 {
     public interface IAccountService
     {

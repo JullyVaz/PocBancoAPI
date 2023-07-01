@@ -9,6 +9,8 @@
       "PocBancoAPI.API/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": "7.0.7",
+          "PocBancoAPI.Services": "1.0.0",
+          "PocBancoAPI.ViewModels": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "runtime": {
@@ -72,6 +74,27 @@
             "fileVersion": "6.5.0.0"
           }
         }
+      },
+      "PocBancoAPI.Services/1.0.0": {
+        "dependencies": {
+          "PocBancoAPI.ViewModels": "1.0.0"
+        },
+        "runtime": {
+          "PocBancoAPI.Services.dll": {}
+        }
+      },
+      "PocBancoAPI.Shared/1.0.0": {
+        "runtime": {
+          "PocBancoAPI.Shared.dll": {}
+        }
+      },
+      "PocBancoAPI.ViewModels/1.0.0": {
+        "dependencies": {
+          "PocBancoAPI.Shared": "1.0.0"
+        },
+        "runtime": {
+          "PocBancoAPI.ViewModels.dll": {}
+        }
       }
     }
   },
@@ -129,6 +152,21 @@
       "sha512": "sha512-OvbvxX+wL8skxTBttcBsVxdh73Fag4xwqEU2edh4JMn7Ws/xJHnY/JB1e9RoCb6XpDxUF3hD9A0Z1lEUx40Pfw==",
       "path": "swashbuckle.aspnetcore.swaggerui/6.5.0",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+    },
+    "PocBancoAPI.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PocBancoAPI.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PocBancoAPI.ViewModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

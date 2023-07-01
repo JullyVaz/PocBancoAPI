@@ -31,3 +31,9 @@ C:\Projetos\PocBancoAPI\PocBancoAPI.API\obj\Debug\net7.0\refint\PocBancoAPI.API.
 C:\Projetos\PocBancoAPI\PocBancoAPI.API\obj\Debug\net7.0\PocBancoAPI.API.pdb
 C:\Projetos\PocBancoAPI\PocBancoAPI.API\obj\Debug\net7.0\PocBancoAPI.API.genruntimeconfig.cache
 C:\Projetos\PocBancoAPI\PocBancoAPI.API\obj\Debug\net7.0\ref\PocBancoAPI.API.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.API\bin\Debug\net7.0\PocBancoAPI.Shared.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.API\bin\Debug\net7.0\PocBancoAPI.ViewModels.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.API\bin\Debug\net7.0\PocBancoAPI.ViewModels.pdb
+C:\Projetos\PocBancoAPI\PocBancoAPI.API\bin\Debug\net7.0\PocBancoAPI.Shared.pdb
+C:\Projetos\PocBancoAPI\PocBancoAPI.API\bin\Debug\net7.0\PocBancoAPI.Services.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.API\bin\Debug\net7.0\PocBancoAPI.Services.pdb
