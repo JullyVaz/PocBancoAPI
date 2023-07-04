@@ -1,5 +1,3 @@
 # PocBancoTransfer
 
-
-
 Projeto em desenvolvimento!
