@@ -1,11 +1,48 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "PocBancoAPI.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "PocBancoAPI.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PocBancoAPI.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PocBancoAPI.Entities.dll": {}
+        }
+      },
+      "PocBancoAPI.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PocBancoAPI.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PocBancoAPI.Shared.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "PocBancoAPI.Entities/1.0.0": {
+      "type": "project",
+      "path": "../PocBancoAPI.Entities/PocBancoAPI.Entities.csproj",
+      "msbuildProject": "../PocBancoAPI.Entities/PocBancoAPI.Entities.csproj"
+    },
+    "PocBancoAPI.Shared/1.0.0": {
+      "type": "project",
+      "path": "../PocBancoAPI.Shared/PocBancoAPI.Shared.csproj",
+      "msbuildProject": "../PocBancoAPI.Shared/PocBancoAPI.Shared.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "PocBancoAPI.Entities >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Usuario\\.nuget\\packages\\": {}
@@ -33,7 +70,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Entities\\PocBancoAPI.Entities.csproj": {
+              "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Entities\\PocBancoAPI.Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

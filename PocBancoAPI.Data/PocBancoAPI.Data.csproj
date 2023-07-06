@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PocBancoAPI.Entities\PocBancoAPI.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

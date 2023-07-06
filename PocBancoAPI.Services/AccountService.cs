@@ -8,8 +8,16 @@ public class AccountService : IAccountService
 {
     public async Task<ServiceResponseViewModel<AccountViewModel>> Insert(AccountViewModel accountViewModel)
     {
-        await Task.Delay(100);
-       return new ServiceResponseViewModel<AccountViewModel> ()
-       { Data = new AccountViewModel {Id=1,FirstName="Juliane arrasouuuuuuuuuu!!!!" } };
+        ServiceResponseViewModel<AccountViewModel> serviceResponseViewModel = new ServiceResponseViewModel<AccountViewModel>();
+        try
+        {
+
+        }
+        catch (Exception ex)
+        {
+            serviceResponseViewModel.Message = ex.GetBaseException().Message;
+            throw;
+        }
+        return serviceResponseViewModel;
     }
 }

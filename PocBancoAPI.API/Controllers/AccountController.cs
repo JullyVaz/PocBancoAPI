@@ -19,7 +19,7 @@ namespace PocBancoAPI.API.Controllers
         [Route("insert")]
         public async Task<IActionResult> Insert([FromBody] AccountViewModel accountViewModel)
         {
-            return Ok(await _accountService.Insert (accountViewModel));
+            return Ok(await _accountService.Insert(accountViewModel));
         }
     }
 }
