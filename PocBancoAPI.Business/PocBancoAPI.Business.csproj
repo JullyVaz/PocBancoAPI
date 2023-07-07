@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PocBancoAPI.Data\PocBancoAPI.Data.csproj" />
     <ProjectReference Include="..\PocBancoAPI.DTOs\PocBancoAPI.DTOs.csproj" />
   </ItemGroup>
 
