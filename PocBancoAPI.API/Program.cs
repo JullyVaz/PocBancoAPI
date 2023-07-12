@@ -1,5 +1,7 @@
 
 
+using Microsoft.EntityFrameworkCore;
+using PocBancoAPI.Data.Context;
 using PocBancoAPI.Services;
 using PocBancoAPI.Services.Interfaces;
 
@@ -12,6 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

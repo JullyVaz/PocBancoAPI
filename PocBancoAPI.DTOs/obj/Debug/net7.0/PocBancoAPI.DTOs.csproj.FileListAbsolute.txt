@@ -10,3 +10,6 @@ C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\obj\Debug\net7.0\PocBancoAPI.DTOs.dll
 C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\obj\Debug\net7.0\refint\PocBancoAPI.DTOs.dll
 C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\obj\Debug\net7.0\PocBancoAPI.DTOs.pdb
 C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\obj\Debug\net7.0\ref\PocBancoAPI.DTOs.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\bin\Debug\net7.0\PocBancoAPI.Shared.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\bin\Debug\net7.0\PocBancoAPI.Shared.pdb
+C:\Projetos\PocBancoAPI\PocBancoAPI.DTOs\obj\Debug\net7.0\PocBancoAPI.DTOs.csproj.CopyComplete

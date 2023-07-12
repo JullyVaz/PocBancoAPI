@@ -10,3 +10,6 @@ C:\Projetos\PocBancoAPI\PocBancoAPI.Entities\obj\Debug\net7.0\PocBancoAPI.Entiti
 C:\Projetos\PocBancoAPI\PocBancoAPI.Entities\obj\Debug\net7.0\refint\PocBancoAPI.Entities.dll
 C:\Projetos\PocBancoAPI\PocBancoAPI.Entities\obj\Debug\net7.0\PocBancoAPI.Entities.pdb
 C:\Projetos\PocBancoAPI\PocBancoAPI.Entities\obj\Debug\net7.0\ref\PocBancoAPI.Entities.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.Entities\bin\Debug\net7.0\PocBancoAPI.Shared.dll
+C:\Projetos\PocBancoAPI\PocBancoAPI.Entities\bin\Debug\net7.0\PocBancoAPI.Shared.pdb
+C:\Projetos\PocBancoAPI\PocBancoAPI.Entities\obj\Debug\net7.0\PocBancoAPI.Entities.csproj.CopyComplete

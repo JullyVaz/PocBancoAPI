@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v7.0": {
       "PocBancoAPI.DTOs/1.0.0": {
+        "dependencies": {
+          "PocBancoAPI.Shared": "1.0.0"
+        },
         "runtime": {
           "PocBancoAPI.DTOs.dll": {}
+        }
+      },
+      "PocBancoAPI.Shared/1.0.0": {
+        "runtime": {
+          "PocBancoAPI.Shared.dll": {}
         }
       }
     }
   },
   "libraries": {
     "PocBancoAPI.DTOs/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PocBancoAPI.Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
