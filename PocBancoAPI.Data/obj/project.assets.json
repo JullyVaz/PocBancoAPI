@@ -1137,7 +1137,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "PocBancoAPI.Shared": "1.0.0"
+          "PocBancoAPI.Enums": "1.0.0"
         },
         "compile": {
           "bin/placeholder/PocBancoAPI.Entities.dll": {}
@@ -1146,14 +1146,27 @@
           "bin/placeholder/PocBancoAPI.Entities.dll": {}
         }
       },
-      "PocBancoAPI.Shared/1.0.0": {
+      "PocBancoAPI.Enums/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "compile": {
-          "bin/placeholder/PocBancoAPI.Shared.dll": {}
+          "bin/placeholder/PocBancoAPI.Enums.dll": {}
         },
         "runtime": {
-          "bin/placeholder/PocBancoAPI.Shared.dll": {}
+          "bin/placeholder/PocBancoAPI.Enums.dll": {}
+        }
+      },
+      "PocBancoAPI.ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "PocBancoAPI.Enums": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PocBancoAPI.ViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PocBancoAPI.ViewModels.dll": {}
         }
       }
     }
@@ -3481,10 +3494,15 @@
       "path": "../PocBancoAPI.Entities/PocBancoAPI.Entities.csproj",
       "msbuildProject": "../PocBancoAPI.Entities/PocBancoAPI.Entities.csproj"
     },
-    "PocBancoAPI.Shared/1.0.0": {
+    "PocBancoAPI.Enums/1.0.0": {
       "type": "project",
-      "path": "../PocBancoAPI.Shared/PocBancoAPI.Shared.csproj",
-      "msbuildProject": "../PocBancoAPI.Shared/PocBancoAPI.Shared.csproj"
+      "path": "../PocBancoAPI.Enums/PocBancoAPI.Enums.csproj",
+      "msbuildProject": "../PocBancoAPI.Enums/PocBancoAPI.Enums.csproj"
+    },
+    "PocBancoAPI.ViewModels/1.0.0": {
+      "type": "project",
+      "path": "../PocBancoAPI.ViewModels/PocBancoAPI.ViewModels.csproj",
+      "msbuildProject": "../PocBancoAPI.ViewModels/PocBancoAPI.ViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3493,7 +3511,8 @@
       "Microsoft.EntityFrameworkCore.Design >= 7.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.8",
-      "PocBancoAPI.Entities >= 1.0.0"
+      "PocBancoAPI.Entities >= 1.0.0",
+      "PocBancoAPI.ViewModels >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3525,6 +3544,9 @@
           "projectReferences": {
             "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Entities\\PocBancoAPI.Entities.csproj": {
               "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Entities\\PocBancoAPI.Entities.csproj"
+            },
+            "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj": {
+              "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj"
             }
           }
         }

@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v7.0": {
       "PocBancoAPI.Entities/1.0.0": {
+        "dependencies": {
+          "PocBancoAPI.Enums": "1.0.0"
+        },
         "runtime": {
           "PocBancoAPI.Entities.dll": {}
+        }
+      },
+      "PocBancoAPI.Enums/1.0.0": {
+        "runtime": {
+          "PocBancoAPI.Enums.dll": {}
         }
       }
     }
   },
   "libraries": {
     "PocBancoAPI.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PocBancoAPI.Enums/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

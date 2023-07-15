@@ -1,11 +1,6 @@
 ﻿using PocBancoAPI.Data.Interfaces;
 using PocBancoAPI.Entities;
-using PocBancoAPI.Shared.Filters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PocBancoAPI.ViewModels.Filters;
 
 namespace PocBancoAPI.Data.Repositories
 {

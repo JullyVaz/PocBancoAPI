@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PocBancoAPI.Entities\PocBancoAPI.Entities.csproj" />
+    <ProjectReference Include="..\PocBancoAPI.ViewModels\PocBancoAPI.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>
