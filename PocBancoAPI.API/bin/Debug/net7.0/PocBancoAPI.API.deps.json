@@ -15,7 +15,6 @@
           "Microsoft.EntityFrameworkCore.Design": "7.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.8",
-          "PocBancoAPI.Data": "1.0.0",
           "PocBancoAPI.Services": "1.0.0",
           "PocBancoAPI.Shared": "1.0.0",
           "PocBancoAPI.ViewModels": "1.0.0",

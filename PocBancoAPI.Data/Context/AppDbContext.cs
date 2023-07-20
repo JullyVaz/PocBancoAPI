@@ -16,5 +16,6 @@ namespace PocBancoAPI.Data.Context
         }
 
         public List<Account> Accounts { get; set; } = default!;
+        public List<Account> Transfers { get; set; } = default!;
     }
 }

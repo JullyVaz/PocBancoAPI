@@ -1,5 +1,4 @@
-﻿
-using AutoMapper;
+﻿using AutoMapper;
 using PocBancoAPI.Business.Interfaces;
 using PocBancoAPI.DTOs;
 using PocBancoAPI.Services.Interfaces;
