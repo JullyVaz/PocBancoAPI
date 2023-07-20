@@ -29,9 +29,6 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj": {
-                "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj"
-              },
               "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Services\\PocBancoAPI.Services.csproj": {
                 "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Services\\PocBancoAPI.Services.csproj"
               },

@@ -4129,7 +4129,6 @@
       "Microsoft.EntityFrameworkCore.Design >= 7.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.8",
-      "PocBancoAPI.Data >= 1.0.0",
       "PocBancoAPI.Services >= 1.0.0",
       "PocBancoAPI.Shared >= 1.0.0",
       "PocBancoAPI.ViewModels >= 1.0.0",
@@ -4164,9 +4163,6 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj": {
-              "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj"
-            },
             "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Services\\PocBancoAPI.Services.csproj": {
               "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Services\\PocBancoAPI.Services.csproj"
             },
