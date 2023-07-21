@@ -20,8 +20,9 @@ public class TransferRepository : ITransferRepository
     {
         throw new NotImplementedException();
     }
-}
 
-public interface ITransferRepository
-{
+    Task<List<Transfer>> ITransferRepository.GetAllAsync(TransferFilter transferFilter)
+    {
+        throw new NotImplementedException();
+    }
 }

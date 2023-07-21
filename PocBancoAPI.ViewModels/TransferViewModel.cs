@@ -1,13 +1,14 @@
-﻿namespace PocBancoAPI.ViewModels
+﻿using PocBancoAPI.Enums;
+
+namespace PocBancoAPI.ViewModels
 {
     public class TransferViewModel
     {
         public int IdTransfer { get; set; }
-        public DateTime Data { get; set; }
-
-        //public EnumTipoTransacao TipoTransacao { get; set; }
-        public int IdContaOrigem { get; set; }
-        public int IdContaDestino { get; set; }
-        public decimal Valor { get; set; }
+        public DateTime Date { get; set; }
+        public TransferTypeEnum TransferType { get; set; }
+        public int IdAcountSource { get; set; }
+        public int IdAccountTarget { get; set; }
+        public decimal Value { get; set; }
     }
 }

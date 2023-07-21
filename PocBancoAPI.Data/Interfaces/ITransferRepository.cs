@@ -3,7 +3,7 @@ using PocBancoAPI.ViewModels.Filters;
 
 namespace PocBancoAPI.Data.Interfaces
 {
-    public interface TransferRepository 
+    public interface ITransferRepository
     {
         Task<int> InsertAsync(Transfer transfer);
         Task<int> UpdateAsync(Transfer transfer);
