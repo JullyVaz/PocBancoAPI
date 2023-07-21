@@ -1,4 +1,4 @@
-﻿using PocBancoAPI.Shared.Enums;
+﻿using PocBancoAPI.Enums;
 
 namespace PocBancoAPI.ViewModels
 {

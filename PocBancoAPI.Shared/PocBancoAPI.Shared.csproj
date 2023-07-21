@@ -1,9 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\PocBancoAPI.DTOs\PocBancoAPI.DTOs.csproj" />
+	  <ProjectReference Include="..\PocBancoAPI.Entities\PocBancoAPI.Entities.csproj" />
+	  <ProjectReference Include="..\PocBancoAPI.ViewModels\PocBancoAPI.ViewModels.csproj" />
+	</ItemGroup>
 
 </Project>

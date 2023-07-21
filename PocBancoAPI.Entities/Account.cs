@@ -1,4 +1,4 @@
-﻿using PocBancoAPI.Shared.Enums;
+﻿using PocBancoAPI.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace PocBancoAPI.Entities;

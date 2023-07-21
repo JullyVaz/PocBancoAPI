@@ -12,7 +12,8 @@
           "Microsoft.EntityFrameworkCore.Design": "7.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.8",
-          "PocBancoAPI.Entities": "1.0.0"
+          "PocBancoAPI.Entities": "1.0.0",
+          "PocBancoAPI.ViewModels": "1.0.0"
         },
         "runtime": {
           "PocBancoAPI.Data.dll": {}
@@ -674,15 +675,23 @@
       },
       "PocBancoAPI.Entities/1.0.0": {
         "dependencies": {
-          "PocBancoAPI.Shared": "1.0.0"
+          "PocBancoAPI.Enums": "1.0.0"
         },
         "runtime": {
           "PocBancoAPI.Entities.dll": {}
         }
       },
-      "PocBancoAPI.Shared/1.0.0": {
+      "PocBancoAPI.Enums/1.0.0": {
         "runtime": {
-          "PocBancoAPI.Shared.dll": {}
+          "PocBancoAPI.Enums.dll": {}
+        }
+      },
+      "PocBancoAPI.ViewModels/1.0.0": {
+        "dependencies": {
+          "PocBancoAPI.Enums": "1.0.0"
+        },
+        "runtime": {
+          "PocBancoAPI.ViewModels.dll": {}
         }
       }
     }
@@ -1167,7 +1176,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "PocBancoAPI.Shared/1.0.0": {
+    "PocBancoAPI.Enums/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PocBancoAPI.ViewModels/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

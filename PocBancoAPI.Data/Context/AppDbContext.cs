@@ -15,11 +15,7 @@ namespace PocBancoAPI.Data.Context
             
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
-
         public DbSet<Account> Accounts { get; set; } = default!;
+        public DbSet<Transfer> Transfers { get; set; } = default!;
     }
 }
