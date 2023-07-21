@@ -3303,19 +3303,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
+    "C:\\Users\\adils\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Business\\PocBancoAPI.Business.csproj",
+      "projectUniqueName": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Business\\PocBancoAPI.Business.csproj",
       "projectName": "PocBancoAPI.Business",
-      "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Business\\PocBancoAPI.Business.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Business\\obj\\",
+      "projectPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Business\\PocBancoAPI.Business.csproj",
+      "packagesPath": "C:\\Users\\adils\\.nuget\\packages\\",
+      "outputPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\adils\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3329,11 +3329,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj": {
-              "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj"
+            "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj": {
+              "projectPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj"
             },
-            "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.DTOs\\PocBancoAPI.DTOs.csproj": {
-              "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.DTOs\\PocBancoAPI.DTOs.csproj"
+            "C:\\Git\\PocBancoTransfer\\PocBancoAPI.DTOs\\PocBancoAPI.DTOs.csproj": {
+              "projectPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.DTOs\\PocBancoAPI.DTOs.csproj"
             }
           }
         }
@@ -3369,7 +3369,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

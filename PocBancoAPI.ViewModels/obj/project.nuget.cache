@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XUnT7UNgY0a0lTSaVY9JYQxizUdtx7PdN7NKR2ya+CJfCZpblRfMVQQDxF8uS+c1oxiT+S9Rhi0LY5bZ5+pl5w==",
+  "dgSpecHash": "TbQFRBKWyA0xqObdENUTrVPsBnzCD4gMEnJuDqCMk7Hjy/YJRHZeUILFTJv/qVO2DS1++8u4scmpcHxV5KhiWQ==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj",
+  "projectFilePath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

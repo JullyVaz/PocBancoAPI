@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj": {}
+    "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj": {
+    "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj",
+        "projectUniqueName": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj",
         "projectName": "PocBancoAPI.Data",
-        "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Data\\obj\\",
+        "projectPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Data\\PocBancoAPI.Data.csproj",
+        "packagesPath": "C:\\Users\\adils\\.nuget\\packages\\",
+        "outputPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adils\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Entities\\PocBancoAPI.Entities.csproj": {
-                "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Entities\\PocBancoAPI.Entities.csproj"
+              "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Entities\\PocBancoAPI.Entities.csproj": {
+                "projectPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Entities\\PocBancoAPI.Entities.csproj"
               },
-              "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj": {
-                "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj"
+              "C:\\Git\\PocBancoTransfer\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj": {
+                "projectPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj"
               }
             }
           }
@@ -84,21 +84,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Entities\\PocBancoAPI.Entities.csproj": {
+    "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Entities\\PocBancoAPI.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Entities\\PocBancoAPI.Entities.csproj",
+        "projectUniqueName": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Entities\\PocBancoAPI.Entities.csproj",
         "projectName": "PocBancoAPI.Entities",
-        "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Entities\\PocBancoAPI.Entities.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Entities\\obj\\",
+        "projectPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Entities\\PocBancoAPI.Entities.csproj",
+        "packagesPath": "C:\\Users\\adils\\.nuget\\packages\\",
+        "outputPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adils\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -112,8 +112,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Enums\\PocBancoAPI.Enums.csproj": {
-                "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Enums\\PocBancoAPI.Enums.csproj"
+              "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Enums\\PocBancoAPI.Enums.csproj": {
+                "projectPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Enums\\PocBancoAPI.Enums.csproj"
               }
             }
           }
@@ -143,21 +143,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Enums\\PocBancoAPI.Enums.csproj": {
+    "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Enums\\PocBancoAPI.Enums.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Enums\\PocBancoAPI.Enums.csproj",
+        "projectUniqueName": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Enums\\PocBancoAPI.Enums.csproj",
         "projectName": "PocBancoAPI.Enums",
-        "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Enums\\PocBancoAPI.Enums.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Enums\\obj\\",
+        "projectPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Enums\\PocBancoAPI.Enums.csproj",
+        "packagesPath": "C:\\Users\\adils\\.nuget\\packages\\",
+        "outputPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Enums\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adils\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -198,21 +198,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj": {
+    "C:\\Git\\PocBancoTransfer\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj",
+        "projectUniqueName": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj",
         "projectName": "PocBancoAPI.ViewModels",
-        "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.ViewModels\\obj\\",
+        "projectPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.ViewModels\\PocBancoAPI.ViewModels.csproj",
+        "packagesPath": "C:\\Users\\adils\\.nuget\\packages\\",
+        "outputPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.ViewModels\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adils\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -226,8 +226,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Enums\\PocBancoAPI.Enums.csproj": {
-                "projectPath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Enums\\PocBancoAPI.Enums.csproj"
+              "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Enums\\PocBancoAPI.Enums.csproj": {
+                "projectPath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Enums\\PocBancoAPI.Enums.csproj"
               }
             }
           }
@@ -257,7 +257,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

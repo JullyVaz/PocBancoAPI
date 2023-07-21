@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "wfXsLMbLv1NVFz/n64BAT7msJjkxFfiDO+nsgulPNzqC5Vu5vMyPsMByz5N+HZR4SOCnQp/0V/BdERYKsR5dUg==",
+  "dgSpecHash": "6FMkyFnei3HjEmhndGDhFhwERxQrhutwFLQepOzRTxM+Gw9vWQZ1TX42q3KHmxZgkHUJKfoSDM9JWevK4w8F2g==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\PocBancoAPI\\PocBancoAPI.Shared\\PocBancoAPI.Shared.csproj",
+  "projectFilePath": "C:\\Git\\PocBancoTransfer\\PocBancoAPI.Shared\\PocBancoAPI.Shared.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Usuario\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
-    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+    "C:\\Users\\adils\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\adils\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }
