@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PocBancoAPI.Services;
 using PocBancoAPI.Services.Interfaces;
 using PocBancoAPI.ViewModels;
+using PocBancoAPI.ViewModels.Filters;
 
 namespace PocBancoAPI.API.Controllers
 {
@@ -20,6 +22,15 @@ namespace PocBancoAPI.API.Controllers
         {
             return Ok(await _transferService.Insert(transferViewModel));
         }
+
+        [HttpGet]
+        [Route("get-all")]
+        public async Task<IActionResult> GetAll([FromQuery] TransferFilter transferFilter)
+        {
+            return Ok(await _transferService.GetAll(transferFilter));
+        }
+
+
     }
 }
 

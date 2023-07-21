@@ -3,6 +3,7 @@ using PocBancoAPI.Business.Interfaces;
 using PocBancoAPI.DTOs;
 using PocBancoAPI.Services.Interfaces;
 using PocBancoAPI.ViewModels;
+using PocBancoAPI.ViewModels.Filters;
 
 namespace PocBancoAPI.Services;
 
@@ -15,6 +16,21 @@ public class TransferService : ITransferService
     {
         _transferBusiness = transferBusiness;
         _mapper = mapper;
+    }
+
+    public async Task<ServiceResponseViewModel<List<TransferViewModel>>> GetAll(TransferFilter transferFilter)
+    {
+        ServiceResponseViewModel<List<TransferViewModel>> serviceResponseViewModel = new ServiceResponseViewModel<List<TransferViewModel>>();
+        try
+        {
+        
+        }
+        catch (Exception ex)
+        {
+            serviceResponseViewModel.Message = ex.GetBaseException().Message;
+            throw;
+        }
+        return serviceResponseViewModel;
     }
 
     public async Task<ServiceResponseViewModel<TransferViewModel>> Insert(TransferViewModel transferViewModel)

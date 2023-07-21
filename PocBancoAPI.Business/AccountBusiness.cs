@@ -1,20 +1,26 @@
-﻿using PocBancoAPI.Business.Interfaces;
+﻿using AutoMapper;
+using PocBancoAPI.Business.Interfaces;
 using PocBancoAPI.Data.Interfaces;
-using PocBancoAPI.Data.Repositories;
 using PocBancoAPI.DTOs;
+using PocBancoAPI.Entities;
 
 namespace PocBancoAPI.Business;
 public class AccountBusiness : IAccountBusiness
 {
     private readonly IAccountRepository _accountRepository;
-   
-    public AccountBusiness(IAccountRepository accountRepository) 
+    private readonly IMapper _mapper;
+
+    public AccountBusiness(IAccountRepository accountRepository, IMapper mapper)
     {
         _accountRepository = accountRepository;
-        
+        _mapper = mapper;
     }
-    public Task<int> InsertAsync(AccountDTO accountDTO)
+
+    public async Task<int> InsertAsync(AccountDTO accountDTO)
     {
-        throw new NotImplementedException();
+        Account account = _mapper.Map<Account>(accountDTO);
+        int accountId = await _accountRepository.InsertAsync(account);
+        return accountId;
+
     }
 }
