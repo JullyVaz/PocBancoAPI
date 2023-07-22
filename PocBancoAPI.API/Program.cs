@@ -4,6 +4,7 @@ using PocBancoAPI.Business.Interfaces;
 using PocBancoAPI.Data.Context;
 using PocBancoAPI.Data.Interfaces;
 using PocBancoAPI.Data.Repositories;
+using PocBancoAPI.Data.UnitOfWork;
 using PocBancoAPI.Services;
 using PocBancoAPI.Services.Interfaces;
 using PocBancoAPI.Shared.MappingProfiles;
@@ -23,6 +24,7 @@ builder.Services.AddScoped<ITransferService, TransferService>();
 builder.Services.AddScoped<ITransferBusiness, TransferBusiness>();
 builder.Services.AddScoped<ITransferRepository, TransferRepository>();
 builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 var app = builder.Build();
 

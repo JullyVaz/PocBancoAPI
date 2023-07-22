@@ -1,4 +1,5 @@
-﻿using PocBancoAPI.Data.Context;
+﻿using Microsoft.EntityFrameworkCore.Storage;
+using PocBancoAPI.Data.Context;
 
 namespace PocBancoAPI.Data.UnitOfWork
 {
@@ -9,21 +10,22 @@ namespace PocBancoAPI.Data.UnitOfWork
         public UnitOfWork(AppDbContext appDbContext)
         {
             _appdbcontext = appDbContext;
+            _appdbcontext.Database.BeginTransaction();
         }
 
-        public Task CommitAsync()
+        public async Task CommitAsync()
         {
-            throw new NotImplementedException();
+            await _appdbcontext.Database.CommitTransactionAsync();
         }
 
-        public Task RollBackAsync()
+        public async Task RollBackAsync()
         {
-            throw new NotImplementedException();
+            await _appdbcontext.Database.RollbackTransactionAsync();
         }
 
-        public Task SaveChangesAsync()
+        public async Task SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            await _appdbcontext.SaveChangesAsync();
         }
     }
 }
