@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PocBancoAPI.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PocBancoAPI.Data.Context
 {
@@ -15,6 +10,7 @@ namespace PocBancoAPI.Data.Context
             
         }
 
-        public List<Account> Accounts { get; set; } = default!;
+        public DbSet<Account> Accounts { get; set; } = default!;
+        public DbSet<Transfer> Transfers { get; set; } = default!;
     }
 }

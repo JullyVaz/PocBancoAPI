@@ -14,6 +14,12 @@ namespace PocBancoAPI.Shared.MappingProfiles
 
             CreateMap<AccountDTO, Account>()
                 .ReverseMap();
+
+            CreateMap<TransferViewModel, TransferDTO>()
+               .ReverseMap();
+
+            CreateMap<TransferDTO, Transfer>()
+                .ReverseMap();
         }
     }
 }
