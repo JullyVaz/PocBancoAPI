@@ -3,5 +3,6 @@
     public class AccountFilter
     {
         public int? IdAccount { get; set; }
+
     }
 }

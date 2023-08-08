@@ -33,6 +33,11 @@ public class TransferService : ITransferService
         return serviceResponseViewModel;
     }
 
+    public Task<ServiceResponseViewModel<List<TransferViewModel>>> GetAllAsync(TransferFilter transferFilter)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<ServiceResponseViewModel<TransferViewModel>> Insert(TransferViewModel transferViewModel)
     {
         ServiceResponseViewModel<TransferViewModel> serviceResponseViewModel = new ServiceResponseViewModel<TransferViewModel>();
@@ -46,5 +51,10 @@ public class TransferService : ITransferService
             throw;
         }
         return serviceResponseViewModel;
+    }
+
+    public Task<ServiceResponseViewModel<TransferViewModel>> InsertAsync(TransferViewModel transferViewModel)
+    {
+        throw new NotImplementedException();
     }
 }

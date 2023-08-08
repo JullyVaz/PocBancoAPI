@@ -16,19 +16,19 @@ namespace PocBancoAPI.API.Controllers
             _transferService = transferService;
         }
 
-        [HttpPost]
-        [Route("insert")]
-        public async Task<IActionResult> Insert([FromBody] TransferViewModel transferViewModel)
-        {
-            return Ok(await _transferService.Insert(transferViewModel));
-        }
+        ////[HttpPost]
+        //[Route("insert")]
+        //public async Task<IActionResult> Insert([FromBody] TransferViewModel transferViewModel)
+        //{
+        //    return Ok(await _transferService.Insert(transferViewModel));
+        //}
 
-        [HttpGet]
-        [Route("get-all")]
-        public async Task<IActionResult> GetAll([FromQuery] TransferFilter transferFilter)
-        {
-            return Ok(await _transferService.GetAll(transferFilter));
-        }
+        //[HttpGet]
+        //[Route("get-all")]
+        //public async Task<IActionResult> GetAll([FromQuery] TransferFilter transferFilter)
+        //{
+        //    return Ok(await _transferService.GetAll(transferFilter));
+        //}
 
 
     }
