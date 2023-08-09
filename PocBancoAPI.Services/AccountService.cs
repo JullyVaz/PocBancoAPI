@@ -4,6 +4,8 @@ using PocBancoAPI.Data.UnitOfWork;
 using PocBancoAPI.DTOs;
 using PocBancoAPI.Services.Interfaces;
 using PocBancoAPI.ViewModels;
+using PocBancoAPI.ViewModels.Filters;
+using System.Net;
 
 namespace PocBancoAPI.Services;
 
@@ -20,20 +22,49 @@ public class AccountService : IAccountService
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<ServiceResponseViewModel<AccountViewModel>> Insert(AccountViewModel accountViewModel)
+    public Task<ServiceResponseViewModel<List<AccountViewModel>>> GetAllAsync(AccountFilter accountFilter)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<ServiceResponseViewModel<AccountViewModel>> GetByIdAsync(int Id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<ServiceResponseViewModel<AccountViewModel>> InsertAsync(AccountViewModel accountViewModel)
     {
         ServiceResponseViewModel<AccountViewModel> serviceResponseViewModel = new ServiceResponseViewModel<AccountViewModel>();
         try
         {
             AccountDTO accountDTO = _mapper.Map<AccountDTO>(accountViewModel);
             accountViewModel.IdAccount = await _accountBusiness.InsertAsync(accountDTO);
-            //throw new Exception("Erro contexto de transacao");
+            serviceResponseViewModel.StatusCode = HttpStatusCode.Created;
             serviceResponseViewModel.Data = accountViewModel;
             await _unitOfWork.CommitAsync();
         }
         catch (Exception ex)
         {
-            serviceResponseViewModel.Message = ex.GetBaseException().Message;
+            serviceResponseViewModel = new ServiceResponseViewModel<AccountViewModel>(ex);
+            await _unitOfWork.RollBackAsync();
+        }
+        return serviceResponseViewModel;
+    }
+
+    public async Task<ServiceResponseViewModel<AccountViewModel>> UpdateAsync(AccountViewModel accountViewModel)
+    {
+        ServiceResponseViewModel<AccountViewModel> serviceResponseViewModel = new ServiceResponseViewModel<AccountViewModel>();
+        try
+        {
+            AccountDTO accountDTO = _mapper.Map<AccountDTO>(accountViewModel);
+            accountDTO = await _accountBusiness.UpdateAsync(accountDTO);
+            serviceResponseViewModel.StatusCode = HttpStatusCode.OK;
+            serviceResponseViewModel.Data = _mapper.Map<AccountViewModel>(accountDTO);
+            await _unitOfWork.CommitAsync();
+        }
+        catch (Exception ex)
+        {
+            serviceResponseViewModel = new ServiceResponseViewModel<AccountViewModel>(ex);
             await _unitOfWork.RollBackAsync();
         }
         return serviceResponseViewModel;

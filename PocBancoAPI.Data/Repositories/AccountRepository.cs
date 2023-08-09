@@ -1,4 +1,5 @@
-﻿using PocBancoAPI.Data.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using PocBancoAPI.Data.Context;
 using PocBancoAPI.Data.Interfaces;
 using PocBancoAPI.Entities;
 using PocBancoAPI.ViewModels.Filters;
@@ -13,9 +14,27 @@ namespace PocBancoAPI.Data.Repositories
             _appDbContext = appDbContext;
         }
 
-        public Task<List<Account>> GetAllAsync(AccountFilter accountFilter)
+        public async Task<List<Account>> GetAllAsync(AccountFilter accountFilter)
         {
-            throw new NotImplementedException();
+            IQueryable<Account> accountsQuery = _appDbContext.Set<Account>()
+                .Where(_account => accountFilter.IdAccount != (int?)null ? _account.IdAccount == (int)accountFilter.IdAccount : true);
+
+            List<Account> accounts = await accountsQuery
+                .AsNoTracking()
+                .ToListAsync();
+
+            return accounts;
+        }
+
+        public async Task<Account> GetByIdAsync(int Id)
+        {
+            Account account = await _appDbContext
+                .Set<Account>()
+                .AsNoTracking()
+                .FirstOrDefaultAsync(_account => _account.IdAccount == Id);
+
+            return account;
+
         }
 
         public async Task<int> InsertAsync(Account account)
@@ -26,9 +45,11 @@ namespace PocBancoAPI.Data.Repositories
             return IdAccount;
         }
 
-        public Task<int> UpdateAsync(Account account)
+        public async Task<int> UpdateAsync(Account account)
         {
-            throw new NotImplementedException();
+            _appDbContext.Set<Account>().Update(account);
+            int result = await _appDbContext.SaveChangesAsync();
+            return result;
         }
     }
 }
