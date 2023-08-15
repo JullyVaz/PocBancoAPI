@@ -8,6 +8,12 @@ namespace PocBancoAPI.Business.Interfaces
     {
         Task<int> InsertAsync(TransferDTO transferDTO);
         Task<ServiceResponseViewModel<List<TransferDTO>>> GetAllAsync(TransferFilter transferFilter);
+        Task<TransferDTO> UpdateAsync(TransferDTO accountDTO);
+        Task<TransferDTO> GetByIdAsync(int id);
+        //Task<List<TransferDTO>> GetAllAsync(TransferFilter transferFilter);
     }
 }
+
+
+
 

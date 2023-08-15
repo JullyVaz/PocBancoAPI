@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using PocBancoAPI.Services;
 using PocBancoAPI.Services.Interfaces;
 using PocBancoAPI.ViewModels;
+using System.Net;
 
 namespace PocBancoAPI.API.Controllers
 {
@@ -29,14 +30,22 @@ namespace PocBancoAPI.API.Controllers
         [HttpPut]
         [Route("update")]
         [ProducesResponseType(typeof(ServiceResponseViewModel<AccountViewModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ServiceResponseViewModel<AccountViewModel>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ServiceResponseViewModel<AccountViewModel>), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Update([FromBody] AccountViewModel accountViewModel)
         {
             ServiceResponseViewModel<AccountViewModel> serviceResponseViewModel = await _accountService.UpdateAsync(accountViewModel);
             return StatusCode((int)serviceResponseViewModel.StatusCode, serviceResponseViewModel);
-
-
         }
 
+        [HttpGet]
+        [Route("get/{id}")]
+        [ProducesResponseType(typeof(ServiceResponseViewModel<AccountViewModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ServiceResponseViewModel<AccountViewModel>), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> GetById (int id)
+        {
+            ServiceResponseViewModel<AccountViewModel> serviceResponseViewModel = await _accountService.GetByIdAsync(id);
+            return StatusCode((int)serviceResponseViewModel.StatusCode, serviceResponseViewModel);
+        }
     }
 }

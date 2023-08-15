@@ -47,9 +47,39 @@ namespace PocBancoAPI.Data.Repositories
 
         public async Task<int> UpdateAsync(Account account)
         {
-            _appDbContext.Set<Account>().Update(account);
-            int result = await _appDbContext.SaveChangesAsync();
-            return result;
+            // Verificando se a conta existe
+            Account existingAccount = await _appDbContext.Set<Account>()
+                .FirstOrDefaultAsync(_account => _account.IdAccount == account.IdAccount);
+
+            if (existingAccount != null)
+            {
+                // Atualiza as propriedades da conta existente com os novos valores
+                _appDbContext.Entry(existingAccount).CurrentValues.SetValues(account);
+
+                // Salva as alterações no banco de dados
+                int result = await _appDbContext.SaveChangesAsync();
+                return result;
+            }
+            else
+            {
+                return NotFound();
+            }
         }
+
+        private int NotFound()
+        {
+            throw new ArgumentException("O Id Account não foi encontrado");
+        }
+
+
+        //public async Task<int> UpdateAsync(Account account)
+        //{
+
+
+
+        //_appDbContext.Set<Account>().Update(account);
+        //int result = await _appDbContext.SaveChangesAsync();
+        //return result;
+        //}
     }
 }

@@ -1,5 +1,7 @@
 ﻿using PocBancoAPI.Entities;
 using PocBancoAPI.ViewModels.Filters;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PocBancoAPI.Data.Interfaces
 {

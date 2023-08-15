@@ -8,6 +8,7 @@ namespace PocBancoAPI.Data.Interfaces
         Task<int> InsertAsync(Transfer transfer);
         Task<int> UpdateAsync(Transfer transfer);
         Task<List<Transfer>> GetAllAsync(TransferFilter transferFilter);
+        Task<Transfer> GetByIdAsync(int Id);
 
     }
 }
