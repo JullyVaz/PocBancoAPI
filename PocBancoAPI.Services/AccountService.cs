@@ -5,6 +5,7 @@ using PocBancoAPI.DTOs;
 using PocBancoAPI.Services.Interfaces;
 using PocBancoAPI.ViewModels;
 using PocBancoAPI.ViewModels.Filters;
+using System.Collections.Generic;
 using System.Net;
 
 namespace PocBancoAPI.Services;
@@ -22,14 +23,35 @@ public class AccountService : IAccountService
         _unitOfWork = unitOfWork;
     }
 
-    public Task<ServiceResponseViewModel<List<AccountViewModel>>> GetAllAsync(AccountFilter accountFilter)
+    public async Task<ServiceResponseViewModel<List<AccountViewModel>>> GetAllAsync(AccountFilter accountFilter)
     {
-        throw new NotImplementedException();
+        ServiceResponseViewModel<List<AccountViewModel>> serviceResponseViewModel = new ServiceResponseViewModel<List<AccountViewModel>>();
+        try
+        {
+        }
+        catch (Exception ex)
+        {
+            serviceResponseViewModel = new ServiceResponseViewModel<List<AccountViewModel>>(ex);
+            await _unitOfWork.RollBackAsync();
+        }
+        return serviceResponseViewModel;
     }
 
-    public Task<ServiceResponseViewModel<AccountViewModel>> GetByIdAsync(int Id)
+    public async Task<ServiceResponseViewModel<AccountViewModel>> GetByIdAsync(int Id)
     {
-        throw new NotImplementedException();
+        ServiceResponseViewModel<AccountViewModel> serviceResponseViewModel = new ServiceResponseViewModel<AccountViewModel>();
+        try
+        {
+            AccountDTO accountDTO = await _accountBusiness.GetByIdAsync(Id);
+            AccountViewModel accountViewModel = _mapper.Map<AccountViewModel>(accountDTO);
+            serviceResponseViewModel.Data = accountViewModel;
+        }
+        catch (Exception ex)
+        {
+            serviceResponseViewModel = new ServiceResponseViewModel<AccountViewModel>(ex);
+            await _unitOfWork.RollBackAsync();
+        }
+        return serviceResponseViewModel;
     }
 
     public async Task<ServiceResponseViewModel<AccountViewModel>> InsertAsync(AccountViewModel accountViewModel)
@@ -42,6 +64,12 @@ public class AccountService : IAccountService
             serviceResponseViewModel.StatusCode = HttpStatusCode.Created;
             serviceResponseViewModel.Data = accountViewModel;
             await _unitOfWork.CommitAsync();
+        }
+        catch (ArgumentException ex)
+        {
+            serviceResponseViewModel = new ServiceResponseViewModel<AccountViewModel>(ex);
+            serviceResponseViewModel.StatusCode = HttpStatusCode.UnprocessableEntity;
+            await _unitOfWork.RollBackAsync();
         }
         catch (Exception ex)
         {
@@ -62,6 +90,13 @@ public class AccountService : IAccountService
             serviceResponseViewModel.Data = _mapper.Map<AccountViewModel>(accountDTO);
             await _unitOfWork.CommitAsync();
         }
+        catch (ArgumentException ex)
+        {
+            serviceResponseViewModel = new ServiceResponseViewModel<AccountViewModel>(ex);
+            serviceResponseViewModel.StatusCode = HttpStatusCode.UnprocessableEntity;
+            await _unitOfWork.RollBackAsync();
+        }
+
         catch (Exception ex)
         {
             serviceResponseViewModel = new ServiceResponseViewModel<AccountViewModel>(ex);
