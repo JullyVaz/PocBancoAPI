@@ -13,6 +13,3 @@ namespace PocBancoAPI.Business.Interfaces
     }
 }
 
-
-
-
