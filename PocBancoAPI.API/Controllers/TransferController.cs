@@ -51,15 +51,22 @@ namespace PocBancoAPI.API.Controllers
             return StatusCode((int)serviceResponseViewModel.StatusCode, serviceResponseViewModel);
         }
 
-
-
+        [HttpGet]
+        [Route("get/{id}")]
+        [ProducesResponseType(typeof(ServiceResponseViewModel<TransferViewModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ServiceResponseViewModel<TransferViewModel>), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> GetById(int id)
+        {
+            ServiceResponseViewModel<TransferViewModel> serviceResponseViewModel = await _transferService.GetByIdAsync(id);
+            return StatusCode((int)serviceResponseViewModel.StatusCode, serviceResponseViewModel);
+        }
     }
 }
 
 
-       
 
-    
+
+
 
 
 
