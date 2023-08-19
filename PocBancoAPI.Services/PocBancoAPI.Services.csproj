@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PocBancoAPI.Business\PocBancoAPI.Business.csproj" />
+    <ProjectReference Include="..\PocBancoAPI.Shared\PocBancoAPI.Shared.csproj" />
     <ProjectReference Include="..\PocBancoAPI.ViewModels\PocBancoAPI.ViewModels.csproj" />
   </ItemGroup>
 
