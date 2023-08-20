@@ -22,7 +22,7 @@ public class ServiceResponseViewModel<T>
     public bool IsSuccess { get; set; }
     public string Message { get; set; }
     public bool HasData { get; set; }
-
+    public bool IsSucess { get; set; }
 
     public void SetData(T data)
     {

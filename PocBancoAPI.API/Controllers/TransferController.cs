@@ -51,6 +51,8 @@ namespace PocBancoAPI.API.Controllers
             return StatusCode((int)serviceResponseViewModel.StatusCode, serviceResponseViewModel);
         }
 
+
+
     }
 }
 

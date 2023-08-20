@@ -22,14 +22,36 @@ public class TransferService : ITransferService
         _unitOfWork = unitOfWork;
     }
 
-    public Task<ServiceResponseViewModel<List<TransferViewModel>>> GetAllAsync(TransferFilter transferFilter)
+    public async Task<ServiceResponseViewModel<List<TransferViewModel>>> GetAllAsync(TransferFilter transferFilter)
     {
-        throw new NotImplementedException();
+        ServiceResponseViewModel<List<TransferViewModel>> serviceResponseViewModel = new ServiceResponseViewModel<List<TransferViewModel>>();
+        try
+        {
+        }
+        catch (Exception ex)
+        {
+            serviceResponseViewModel = new ServiceResponseViewModel<List<TransferViewModel>>(ex);
+            await _unitOfWork.RollBackAsync();
+        }
+        return serviceResponseViewModel;
+    
     }
 
-    public Task<ServiceResponseViewModel<TransferViewModel>> GetByIdAsync(int Id)
+    public async Task<ServiceResponseViewModel<TransferViewModel>> GetByIdAsync(int Id)
     {
-        throw new NotImplementedException();
+        ServiceResponseViewModel<TransferViewModel> serviceResponseViewModel = new ServiceResponseViewModel<TransferViewModel>();
+        try
+        {
+            TransferDTO transferDTO = await _transferBusiness.GetByIdAsync(Id);
+            TransferViewModel transferViewModel = _mapper.Map<TransferViewModel>(transferDTO);
+            serviceResponseViewModel.Data = transferViewModel;
+        }
+        catch (Exception ex)
+        {
+            serviceResponseViewModel = new ServiceResponseViewModel<TransferViewModel>(ex);
+            await _unitOfWork.RollBackAsync();
+        }
+        return serviceResponseViewModel;
     }
 
     public async Task<ServiceResponseViewModel<TransferViewModel>> InsertAsync(TransferViewModel transferViewModel)

@@ -7,8 +7,8 @@ namespace PocBancoAPI.ViewModels
         public int IdTransfer { get; set; }
         public DateTime Date { get; set; }
         public TransferTypeEnum TransferType { get; set; }
-        public int IdAccountSource { get; set; }
-        public int IdAccountTarget { get; set; }
+        public required string IdAccountSource { get; set; }
+        public required string IdAccountTarget { get; set; }
         public decimal Value { get; set; }
     }
 }
