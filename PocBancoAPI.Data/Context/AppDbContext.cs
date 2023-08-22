@@ -11,6 +11,6 @@ namespace PocBancoAPI.Data.Context
         }
 
         public DbSet<Account> Accounts { get; set; } = default!;
-        public DbSet<Transfer> Transfers { get; set; } = default!;
+        public DbSet<FinancialOperation> FinancialOperations { get; set; } = default!;
     }
 }

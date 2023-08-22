@@ -57,7 +57,7 @@ namespace PocBancoAPI.Data.Migrations
                     b.ToTable("Accounts");
                 });
 
-            modelBuilder.Entity("PocBancoAPI.Entities.Transfer", b =>
+            modelBuilder.Entity("PocBancoAPI.Entities.FinancialOperation", b =>
                 {
                     b.Property<int>("IdTransfer")
                         .ValueGeneratedOnAdd()
@@ -74,6 +74,9 @@ namespace PocBancoAPI.Data.Migrations
                     b.Property<int>("IdAcountSource")
                         .HasColumnType("int");
 
+                    b.Property<int>("Idtransfer")
+                        .HasColumnType("int");
+
                     b.Property<int>("TransferType")
                         .HasColumnType("int");
 
@@ -82,7 +85,7 @@ namespace PocBancoAPI.Data.Migrations
 
                     b.HasKey("IdTransfer");
 
-                    b.ToTable("Transfers");
+                    b.ToTable("FinancialOperations");
                 });
 #pragma warning restore 612, 618
         }
