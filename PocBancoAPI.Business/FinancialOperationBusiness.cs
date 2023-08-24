@@ -10,28 +10,30 @@ using System.Text;
 
 namespace PocBancoAPI.Business
 {
-    public class TransferBusiness : ITransferBusiness
+    public class FinancialOperationBusiness : IFinancialOperationBusiness
     {
-        private readonly ITransferRepository _transferRepository;
+        private readonly IFinancialOperationRepository _financialOperationRepository;
         private readonly IMapper _mapper;
 
-        public TransferBusiness(ITransferRepository transferRepository, IMapper mapper)
+        public FinancialOperationBusiness(IFinancialOperationRepository financialOperationRepository, IMapper mapper)
         {
-            _transferRepository = transferRepository;
+            _financialOperationRepository = financialOperationRepository;
             _mapper = mapper;
         }
 
-        public Task<List<TransferDTO>> GetAllAsync(TransferFilter transferFilter)
+        public Task<List<FinancialOperationDTO>> GetAllAsync(FinancialOperationFilter transferFilter)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TransferDTO> GetByIdAsync(int id)
+        public async Task<FinancialOperationDTO> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+           FinancialOperation financialOperation = await _financialOperationRepository.GetByIdAsync(id);
+            FinancialOperationDTO financialOperationDTO = _mapper.Map<FinancialOperationDTO>(financialOperation);
+            return financialOperationDTO;
         }
 
-        public async Task<int> InsertAsync(TransferDTO transferDTO)
+        public async Task<int> InsertAsync(FinancialOperationDTO transferDTO)
 
         //if (string.IsNullOrWhiteSpace(transferDTO.TransferTypeEnum))
         //{
@@ -64,26 +66,26 @@ namespace PocBancoAPI.Business
                 throw new ArgumentException(errorMessage.ToString());
             }
 
-           Transfer transfer = _mapper.Map<Transfer>(transferDTO);
-            int transferId = await _transferRepository.InsertAsync(transfer);
+           FinancialOperation transfer = _mapper.Map<FinancialOperation>(transferDTO);
+            int transferId = await _financialOperationRepository.InsertAsync(transfer);
             return transferId;
         }
 
-        public async Task<TransferDTO> UpdateAsync(TransferDTO transferDTO)
+        public async Task<FinancialOperationDTO> UpdateAsync(FinancialOperationDTO transferDTO)
         {
             if (string.IsNullOrWhiteSpace(transferDTO.IdTransfer.ToString()))
             {
                 throw new ArgumentException("O campo 'IdTransfer' é obrigatório para a atualização.");
             }
 
-            Transfer transfer = _mapper.Map<Transfer>(transferDTO);
-            int result = await _transferRepository.UpdateAsync(transfer);
+            FinancialOperation transfer = _mapper.Map<FinancialOperation>(transferDTO);
+            int result = await _financialOperationRepository.UpdateAsync(transfer);
 
-            Transfer updatedTransfer = await _transferRepository.GetByIdAsync(transferDTO.IdTransfer);
-            return _mapper.Map<TransferDTO>(updatedTransfer);
+            FinancialOperation updatedTransfer = await _financialOperationRepository.GetByIdAsync(transferDTO.IdTransfer);
+            return _mapper.Map<FinancialOperationDTO>(updatedTransfer);
         }
 
-        Task<ServiceResponseViewModel<List<TransferDTO>>> ITransferBusiness.GetAllAsync(TransferFilter transferFilter)
+        Task<ServiceResponseViewModel<List<FinancialOperationDTO>>> IFinancialOperationBusiness.GetAllAsync(FinancialOperationFilter transferFilter)
         {
             throw new NotImplementedException();
         }

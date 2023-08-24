@@ -30,11 +30,12 @@ namespace PocBancoAPI.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Transfers",
+                name: "FinancialOperations",
                 columns: table => new
                 {
                     IdTransfer = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Idtransfer = table.Column<int>(type: "int", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TransferType = table.Column<int>(type: "int", nullable: false),
                     IdAcountSource = table.Column<int>(type: "int", nullable: false),
@@ -43,7 +44,7 @@ namespace PocBancoAPI.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Transfers", x => x.IdTransfer);
+                    table.PrimaryKey("PK_FinancialOperations", x => x.IdTransfer);
                 });
         }
 
@@ -54,7 +55,7 @@ namespace PocBancoAPI.Data.Migrations
                 name: "Accounts");
 
             migrationBuilder.DropTable(
-                name: "Transfers");
+                name: "FinancialOperations");
         }
     }
 }

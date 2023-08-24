@@ -3,13 +3,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PocBancoAPI.Entities
 {
-    public class Transfer
+    public class FinancialOperation
     {
         [Key]
         public int IdTransfer { get; set; }
-        public int Idtransfer { get; set; }
         public DateTime Date { get; set; }
-        public TransferTypeEnum TransferType { get; set; }
+        public OperationTypeEnum TransferType { get; set; }
         public int IdAcountSource { get; set; }
         public int IdAccountTarget { get; set; }
         public decimal Value { get; set; }

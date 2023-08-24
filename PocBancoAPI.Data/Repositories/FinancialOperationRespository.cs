@@ -6,30 +6,30 @@ using PocBancoAPI.ViewModels.Filters;
 
 namespace PocBancoAPI.Data.Repositories
 {
-    public class TransferRepository : ITransferRepository
+    public class FinancialOperationRespository : IFinancialOperationRepository
     {
         private readonly AppDbContext _appDbContext;
-        public TransferRepository(AppDbContext appDbContext)
+        public FinancialOperationRespository(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
 
-        public async Task<List<Transfer>> GetAllAsync(TransferFilter transferFilter)
+        public async Task<List<FinancialOperation>> GetAllAsync(FinancialOperationFilter transferFilter)
         {
-            IQueryable<Transfer> transfersQuery = _appDbContext.Set<Transfer>()
+            IQueryable<FinancialOperation> transfersQuery = _appDbContext.Set<FinancialOperation>()
                 .Where(_transfer => transferFilter.IdTransfer != (int?)null ? _transfer.Idtransfer == (int)transferFilter.IdTransfer : true);
 
-            List<Transfer> transfers = await transfersQuery
+            List<FinancialOperation> transfers = await transfersQuery
                 .AsNoTracking()
                 .ToListAsync();
 
             return transfers;
         }
 
-        public async Task<Transfer> GetByIdAsync(int Id)
+        public async Task<FinancialOperation> GetByIdAsync(int Id)
         {
-            Transfer transfer = await _appDbContext
-                .Set<Transfer>()
+            FinancialOperation transfer = await _appDbContext
+                .Set<FinancialOperation>()
                 .AsNoTracking()
                 .FirstOrDefaultAsync(_transfer => _transfer.IdTransfer == Id);
 
@@ -37,15 +37,15 @@ namespace PocBancoAPI.Data.Repositories
 
         }
 
-        public async Task<int> InsertAsync(Transfer transfer)
+        public async Task<int> InsertAsync(FinancialOperation transfer)
         {
-            await _appDbContext.Set<Transfer>().AddAsync(transfer);
+            await _appDbContext.Set<FinancialOperation>().AddAsync(transfer);
             await _appDbContext.SaveChangesAsync();
             int IdTransfer = transfer.IdTransfer;
             return IdTransfer;
         }
 
-        public Task<int> UpdateAsync(Transfer transfer)
+        public Task<int> UpdateAsync(FinancialOperation transfer)
         {
             throw new NotImplementedException();
         }
