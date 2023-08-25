@@ -18,9 +18,11 @@ public class AccountBusiness : IAccountBusiness
         _mapper = mapper;
     }
 
-    public Task<List<AccountDTO>> GetAllAsync(AccountFilter accountFilter)
+    public async Task<List<AccountDTO>> GetAllAsync(AccountFilter accountFilter)
     {
-        throw new NotImplementedException();
+        List<Account> account = await _accountRepository.GetAllAsync(accountFilter);
+        List<AccountDTO> accountDTO = _mapper.Map<List<AccountDTO>>(account);
+        return accountDTO;
     }
 
     public async Task<AccountDTO> GetByIdAsync(int id)
