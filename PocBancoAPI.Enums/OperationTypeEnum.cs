@@ -1,6 +1,6 @@
 ﻿namespace PocBancoAPI.Enums
 {
-    public enum TransferTypeEnum
+    public enum OperationTypeEnum
     {
         Transfer=1,
         Deposit=2,

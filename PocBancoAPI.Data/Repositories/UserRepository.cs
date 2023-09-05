@@ -32,14 +32,14 @@ namespace PocBancoAPI.Data.Repositories
         {
             await _appDbContext.Set<User>().AddAsync(user);
             await _appDbContext.SaveChangesAsync();
-            return user.Id;
+            return user.IdUser;
         }
 
         public async Task<User> Update(User user)
         {
             _appDbContext.Set<User>().Update(user);
             await _appDbContext.SaveChangesAsync();
-            User updatedUser = await _appDbContext.Set<User>().FirstOrDefaultAsync(x => x.Id == user.Id);
+            User updatedUser = await _appDbContext.Set<User>().FirstOrDefaultAsync(x => x.IdUser == user.IdUser);
             return updatedUser;
         }
 

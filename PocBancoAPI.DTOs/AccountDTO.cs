@@ -1,4 +1,6 @@
-﻿using PocBancoAPI.Enums;
+﻿using PocBancoAPI.Entities;
+using PocBancoAPI.Enums;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PocBancoAPI.DTOs;
@@ -6,10 +8,13 @@ namespace PocBancoAPI.DTOs;
 public class AccountDTO
 {
     public int IdAccount { get; set; }
-    public required string FirstName { get; set; }
-    public required string MiddleName { get; set; }
-    public required string LastName { get; set; }
-    public string? Document { get; set; }
+    public int IdUser { get; set; }
+    public User User { get; set; }
+    public string FirstName { get; set; }
+    public string MiddleName { get; set; }
+    public string LastName { get; set; }
+    public string Document { get; set; }
     public decimal Balance { get; set; }
     public AccountTypeEnum AccountType { get; set; }
+    public virtual List<FinancialOperation> FinancialOperations { get; set; }
 }

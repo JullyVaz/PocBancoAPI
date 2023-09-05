@@ -35,7 +35,7 @@ namespace PocBancoAPI.Services
             try
             {
                 UserDTO userOnDatabase = await _userBusiness.GetByEmail(userLoginViewModel.Email);
-                if (userOnDatabase.Id == 0)
+                if (userOnDatabase.IdUser == 0)
                 {
                     serviceResponseDTO.IsSucess = false;
                     serviceResponseDTO.Message = ConstantMessages.UserNotFound;
@@ -77,7 +77,7 @@ namespace PocBancoAPI.Services
                 PasswordHashUtility.CreateHash(userToInsertViewModel.Password, out byte[] passwordHash, out byte[] passwordSalt);
                 userDTO.PasswordHash = passwordHash;
                 userDTO.PasswordSalt = passwordSalt;
-                userDTO.Id = await _userBusiness.Insert(userDTO);
+                userDTO.IdUser = await _userBusiness.Insert(userDTO);
                 await _unitOfWork.CommitAsync();
                 serviceResponseDTO.Data = _mapper.Map<UserViewModel>(userDTO);
             }
@@ -95,7 +95,7 @@ namespace PocBancoAPI.Services
         {
             List<Claim> claims = new List<Claim>()
             {
-                new Claim(ClaimTypes.NameIdentifier, userDTO.Id.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, userDTO.IdUser.ToString()),
                 new Claim(ClaimTypes.Name, userDTO.Email)
             };
 
