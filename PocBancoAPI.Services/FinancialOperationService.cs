@@ -11,18 +11,18 @@ using System;
 
 namespace PocBancoAPI.Services
 {
-    public class FinancialOperationService : IFinancialOperationService
-    {
-        private readonly IFinancialOperationBusiness _financialOperationBusiness;
-        private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
+public class FinancialOperationService : IFinancialOperationService
+{
+    private readonly IFinancialOperationBusiness _financialOperationBusiness;
+    private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
 
         public FinancialOperationService(IFinancialOperationBusiness financialoperationBusiness, IMapper mapper, IUnitOfWork unitOfWork)
-        {
+    {
             _financialOperationBusiness = financialoperationBusiness;
-            _mapper = mapper;
-            _unitOfWork = unitOfWork;
-        }
+        _mapper = mapper;
+        _unitOfWork = unitOfWork;
+    }
 
         public async Task<ServiceResponseViewModel<List<FinancialOperationViewModel>>> GetAllAsync(FinancialOperationFilter financialOperationFilter)
         {
@@ -34,68 +34,68 @@ namespace PocBancoAPI.Services
                 serviceResponseViewModel.Data = financialOperationViewModels;
             }
             catch (Exception ex)
-            {
+    {
                 serviceResponseViewModel = new ServiceResponseViewModel<List<FinancialOperationViewModel>>(ex);
                 await _unitOfWork.RollBackAsync();
             }
             return serviceResponseViewModel;
-        }
+    }
 
-        public async Task<ServiceResponseViewModel<FinancialOperationViewModel>> GetByIdAsync(int Id)
+    public async Task<ServiceResponseViewModel<FinancialOperationViewModel>> GetByIdAsync(int Id)
+    {
+        ServiceResponseViewModel<FinancialOperationViewModel> serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>();
+        try
         {
-            ServiceResponseViewModel<FinancialOperationViewModel> serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>();
-            try
-            {
-                FinancialOperationDTO financialOperationDTO = await _financialOperationBusiness.GetByIdAsync(Id);
-                FinancialOperationViewModel financialOperationViewModel = _mapper.Map<FinancialOperationViewModel>(financialOperationDTO);
-                serviceResponseViewModel.Data = financialOperationViewModel;
-            }
-            catch (Exception ex)
-            {
-                serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>(ex);
-                await _unitOfWork.RollBackAsync();
-            }
-            return serviceResponseViewModel;
+            FinancialOperationDTO financialOperationDTO = await _financialOperationBusiness.GetByIdAsync(Id);
+            FinancialOperationViewModel financialOperationViewModel = _mapper.Map<FinancialOperationViewModel>(financialOperationDTO);
+            serviceResponseViewModel.Data = financialOperationViewModel;
         }
-
-        public async Task<ServiceResponseViewModel<FinancialOperationViewModel>> InsertAsync(FinancialOperationViewModel transferViewModel)
+        catch (Exception ex)
         {
-            ServiceResponseViewModel<FinancialOperationViewModel> serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>();
-            try
-            {
-                FinancialOperationDTO transferDTO = _mapper.Map<FinancialOperationDTO>(transferViewModel);
+            serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>(ex);
+            await _unitOfWork.RollBackAsync();
+        }
+        return serviceResponseViewModel;
+    }
+
+    public async Task<ServiceResponseViewModel<FinancialOperationViewModel>> InsertAsync(FinancialOperationViewModel transferViewModel)
+    {
+        ServiceResponseViewModel<FinancialOperationViewModel> serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>();
+        try
+        {
+            FinancialOperationDTO transferDTO = _mapper.Map<FinancialOperationDTO>(transferViewModel);
                 transferViewModel.IdFinancialOperation = await _financialOperationBusiness.InsertAsync(transferDTO);
-                serviceResponseViewModel.StatusCode = HttpStatusCode.Created;
-                serviceResponseViewModel.Data = transferViewModel;
-                await _unitOfWork.CommitAsync();
-            }
-            catch (Exception ex)
-            {
-                serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>(ex);
-                await _unitOfWork.RollBackAsync();
-            }
-            return serviceResponseViewModel;
+            serviceResponseViewModel.StatusCode = HttpStatusCode.Created;
+            serviceResponseViewModel.Data = transferViewModel;
+            await _unitOfWork.CommitAsync();
         }
-
-        public async Task<ServiceResponseViewModel<FinancialOperationViewModel>> UpdateAsync(FinancialOperationViewModel transferViewModel)
+        catch (Exception ex)
         {
-            ServiceResponseViewModel<FinancialOperationViewModel> serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>();
-            try
-            {
+            serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>(ex);
+            await _unitOfWork.RollBackAsync();
+        }
+        return serviceResponseViewModel;
+    }
+
+    public async Task<ServiceResponseViewModel<FinancialOperationViewModel>> UpdateAsync(FinancialOperationViewModel transferViewModel)
+    {
+        ServiceResponseViewModel<FinancialOperationViewModel> serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>();
+        try
+        {
                 FinancialOperationDTO financialoperationDTO = _mapper.Map<FinancialOperationDTO>(transferViewModel);
                 financialoperationDTO = await _financialOperationBusiness.UpdateAsync(financialoperationDTO);
-                serviceResponseViewModel.StatusCode = HttpStatusCode.OK;
+            serviceResponseViewModel.StatusCode = HttpStatusCode.OK;
                 serviceResponseViewModel.Data = _mapper.Map<FinancialOperationViewModel>(financialoperationDTO);
-                await _unitOfWork.CommitAsync();
-            }
-            catch (Exception ex)
-            {
-                serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>(ex);
-                await _unitOfWork.RollBackAsync();
-            }
-            return serviceResponseViewModel;
+            await _unitOfWork.CommitAsync();
         }
+        catch (Exception ex)
+        {
+            serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>(ex);
+            await _unitOfWork.RollBackAsync();
+        }
+        return serviceResponseViewModel;
     }
+}
 }
 
 

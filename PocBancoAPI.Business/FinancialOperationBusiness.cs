@@ -31,7 +31,7 @@ namespace PocBancoAPI.Business
 
         public async Task<FinancialOperationDTO> GetByIdAsync(int id)
         {
-            FinancialOperation financialOperation = await _financialOperationRepository.GetByIdAsync(id);
+           FinancialOperation financialOperation = await _financialOperationRepository.GetByIdAsync(id);
             FinancialOperationDTO financialOperationDTO = _mapper.Map<FinancialOperationDTO>(financialOperation);
             return financialOperationDTO;
         }
@@ -75,6 +75,9 @@ namespace PocBancoAPI.Business
                 throw new ArgumentException(errorMessage.ToString());
             }
 
+           FinancialOperation transfer = _mapper.Map<FinancialOperation>(transferDTO);
+            int transferId = await _financialOperationRepository.InsertAsync(transfer);
+            return transferId;
         }
         public async Task<FinancialOperationDTO> UpdateAsync(FinancialOperationDTO financialoperationDTO)
         {
