@@ -74,11 +74,8 @@ namespace PocBancoAPI.Business
 
                 throw new ArgumentException(errorMessage.ToString());
             }
-
-           FinancialOperation transfer = _mapper.Map<FinancialOperation>(transferDTO);
-            int transferId = await _financialOperationRepository.InsertAsync(transfer);
-            return transferId;
         }
+
         public async Task<FinancialOperationDTO> UpdateAsync(FinancialOperationDTO financialoperationDTO)
         {
             if (string.IsNullOrWhiteSpace(financialoperationDTO.IdFinancialOperation.ToString()))

@@ -12,8 +12,8 @@ using PocBancoAPI.Data.Context;
 namespace PocBancoAPI.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230905001934_InitialCreated")]
-    partial class InitialCreated
+    [Migration("20230913144013_IntialCreate")]
+    partial class IntialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

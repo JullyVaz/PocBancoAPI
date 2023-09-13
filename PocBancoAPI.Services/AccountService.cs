@@ -5,7 +5,6 @@ using PocBancoAPI.DTOs;
 using PocBancoAPI.Services.Interfaces;
 using PocBancoAPI.ViewModels;
 using PocBancoAPI.ViewModels.Filters;
-using System.Collections.Generic;
 using System.Net;
 
 namespace PocBancoAPI.Services

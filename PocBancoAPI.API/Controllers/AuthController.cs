@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using PocBancoAPI.Services;
 using PocBancoAPI.Services.Interfaces;
 using PocBancoAPI.ViewModels;
@@ -7,10 +9,11 @@ namespace PocBancoAPI.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
-        public AuthController(AuthSevice authService)
+        public AuthController(IAuthService authService)
         {
             _authService = authService;
         }
@@ -25,7 +28,7 @@ namespace PocBancoAPI.API.Controllers
 
         [HttpGet]
         [Route(nameof(Login))]
-        public async Task<IActionResult> Login([FromQuery] UserViewModel userLoginViewModel)
+        public async Task<IActionResult> Login([FromQuery] UserLoginViewModel userLoginViewModel)
         {
             ServiceResponseViewModel<string> serviceResponseDTO = await _authService.Login(userLoginViewModel);
             return Ok(serviceResponseDTO);

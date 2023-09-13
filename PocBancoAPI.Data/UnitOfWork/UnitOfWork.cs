@@ -17,7 +17,7 @@ namespace PocBancoAPI.Data.UnitOfWork
             await _appdbcontext.Database.CommitTransactionAsync();
         }
 
-        public async Task RollbackAsync()
+        public async Task RollBackAsync()
         {
             await _appdbcontext.Database.RollbackTransactionAsync();
         }
@@ -25,16 +25,6 @@ namespace PocBancoAPI.Data.UnitOfWork
         public async Task SaveChangesAsync()
         {
             await _appdbcontext.SaveChangesAsync();
-        }
-
-        Task IUnitOfWork.RollbackAscync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task IUnitOfWork.RollBackAsync()
-        {
-            throw new NotImplementedException();
         }
     }
 }

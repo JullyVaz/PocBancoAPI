@@ -15,7 +15,6 @@ namespace PocBancoAPI.Data.Repositories
         private readonly AppDbContext _appDbContext;
 
         public UserRepository(AppDbContext appDbContext)
-
         {
             _appDbContext = appDbContext;
         }
@@ -25,7 +24,6 @@ namespace PocBancoAPI.Data.Repositories
         {
             User user = await _appDbContext.Set<User>().FirstOrDefaultAsync(x => x.Email == email);
             return user;
-
         }
 
         public async Task<int> Insert(User user)
@@ -42,7 +40,6 @@ namespace PocBancoAPI.Data.Repositories
             User updatedUser = await _appDbContext.Set<User>().FirstOrDefaultAsync(x => x.IdUser == user.IdUser);
             return updatedUser;
         }
-
     }
 }
 

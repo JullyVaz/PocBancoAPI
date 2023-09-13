@@ -1,28 +1,42 @@
-﻿using PocBancoAPI.Business.Interfaces;
+﻿using AutoMapper;
+using PocBancoAPI.Business.Interfaces;
+using PocBancoAPI.Data.Interfaces;
 using PocBancoAPI.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PocBancoAPI.Entities;
 
 namespace PocBancoAPI.Business
 {
     public class UserBusiness : IUserBusiness
     {
-        public Task<UserDTO> GetByEmail(string email)
+        private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
+        public UserBusiness(IUserRepository userRepository, IMapper mapper)
         {
-            throw new NotImplementedException();
+            _userRepository = userRepository;
+            _mapper = mapper;
         }
 
-        public Task<int> Insert(UserDTO userDTO)
+        public async Task<UserDTO> GetByEmail(string email)
         {
-            throw new NotImplementedException();
+            User user = await _userRepository.GetByEmail(email);
+            UserDTO userDTO = _mapper.Map<UserDTO>(user);
+            return userDTO;
         }
 
-        public Task<UserDTO> Update(UserDTO userDTO)
+        public async Task<int> Insert(UserDTO userDTO)
         {
-            throw new NotImplementedException();
+            User user = _mapper.Map<User>(userDTO);
+            int userId = await _userRepository.Insert(user);
+            return userId;
+        }
+
+        public async Task<UserDTO> Update(UserDTO userDTO)
+        {
+            User user = _mapper.Map<User>(userDTO);
+            user = await _userRepository.Update(user);
+            userDTO = _mapper.Map<UserDTO>(user);
+
+            return userDTO;
         }
     }
 }
