@@ -6,11 +6,11 @@ namespace PocBancoAPI.Business.Interfaces
 {
     public interface IFinancialOperationBusiness
     {
-        Task<int> InsertAsync(FinancialOperationDTO transferDTO);
-        Task<ServiceResponseViewModel<List<FinancialOperationDTO>>> GetAllAsync(FinancialOperationFilter transferFilter);
-        Task<FinancialOperationDTO> UpdateAsync(FinancialOperationDTO accountDTO);
+        Task<int> InsertAsync(FinancialOperationDTO financialoperationDTO);
+        Task<List<FinancialOperationDTO>> GetAllAsync(FinancialOperationFilter financialoperationFilter);
+        Task<FinancialOperationDTO> UpdateAsync(FinancialOperationDTO financialoperationDTO);
         Task<FinancialOperationDTO> GetByIdAsync(int id);
-        //Task<List<TransferDTO>> GetAllAsync(TransferFilter transferFilter);
+      
     }
 }
 

@@ -5,9 +5,9 @@ namespace PocBancoAPI.Services.Interfaces
 {
     public interface IFinancialOperationService
     {
-        Task<ServiceResponseViewModel<FinancialOperationViewModel>> InsertAsync(FinancialOperationViewModel transferViewModel);
-        Task<ServiceResponseViewModel<FinancialOperationViewModel>> UpdateAsync(FinancialOperationViewModel TransferViewModel);
+        Task<ServiceResponseViewModel<FinancialOperationViewModel>> InsertAsync(FinancialOperationViewModel financialoperationViewModel);
+        Task<ServiceResponseViewModel<FinancialOperationViewModel>> UpdateAsync(FinancialOperationViewModel financialoperationViewModel);
         Task<ServiceResponseViewModel<FinancialOperationViewModel>> GetByIdAsync(int id);
-        Task<ServiceResponseViewModel<List<FinancialOperationViewModel>>> GetAllAsync(FinancialOperationFilter transferFilter);
+        Task<ServiceResponseViewModel<List<FinancialOperationViewModel>>> GetAllAsync(FinancialOperationFilter financialoperationFilter);
     }
 }

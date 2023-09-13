@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using PocBancoAPI.Business.Interfaces;
 using PocBancoAPI.Data.Interfaces;
+using PocBancoAPI.Data.Repositories;
 using PocBancoAPI.DTOs;
 using PocBancoAPI.Entities;
 using PocBancoAPI.ViewModels.Filters;
@@ -20,8 +21,8 @@ public class AccountBusiness : IAccountBusiness
 
     public async Task<List<AccountDTO>> GetAllAsync(AccountFilter accountFilter)
     {
-        List<Account> account = await _accountRepository.GetAllAsync(accountFilter);
-        List<AccountDTO> accountDTO = _mapper.Map<List<AccountDTO>>(account);
+        List<Account> accounts = await _accountRepository.GetAllAsync(accountFilter);
+        List<AccountDTO> accountDTO = _mapper.Map<List<AccountDTO>>(accounts);
         return accountDTO;
     }
 

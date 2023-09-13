@@ -35,7 +35,7 @@ namespace PocBancoAPI.Services
             {
                 serviceResponseViewModel.IsSucess = false;
                 serviceResponseViewModel.Message = ex.GetBaseException().Message;
-                await _unitOfWork.RollbackAscync();
+                await _unitOfWork.RollBackAsync();
             }
 
             return serviceResponseViewModel;
@@ -56,7 +56,7 @@ namespace PocBancoAPI.Services
             {
                 serviceResponseViewModel.IsSucess = false;
                 serviceResponseViewModel.Message = ex.GetBaseException().Message;
-                await _unitOfWork.RollbackAscync();
+                await _unitOfWork.RollBackAsync();
             }
 
             return serviceResponseViewModel;

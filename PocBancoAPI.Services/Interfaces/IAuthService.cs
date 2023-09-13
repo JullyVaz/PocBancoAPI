@@ -7,7 +7,7 @@ namespace PocBancoAPI.Services.Interfaces
     {
         public Task<ServiceResponseViewModel<UserViewModel>> Register(UserToInsertViewModel userToInsertViewModel);
 
-        public Task<ServiceResponseViewModel<string>> Login(UserViewModel userLoginViewModel);
+        public Task<ServiceResponseViewModel<string>> Login(UserLoginViewModel userLoginViewModel);
 
     }
 }

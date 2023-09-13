@@ -70,16 +70,5 @@ namespace PocBancoAPI.Data.Repositories
         {
             throw new ArgumentException("O Id Account não foi encontrado");
         }
-
-
-        //public async Task<int> UpdateAsync(Account account)
-        //{
-
-
-
-        //_appDbContext.Set<Account>().Update(account);
-        //int result = await _appDbContext.SaveChangesAsync();
-        //return result;
-        //}
     }
 }

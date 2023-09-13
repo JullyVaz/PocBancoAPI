@@ -5,9 +5,9 @@ namespace PocBancoAPI.Data.Interfaces
 {
     public interface IFinancialOperationRepository
     {
-        Task<int> InsertAsync(FinancialOperation transfer);
-        Task<int> UpdateAsync(FinancialOperation transfer);
-        Task<List<FinancialOperation>> GetAllAsync(FinancialOperationFilter transferFilter);
+        Task<int> InsertAsync(FinancialOperation financialoperation);
+        Task<int> UpdateAsync(FinancialOperation financialoperation);
+        Task<List<FinancialOperation>> GetAllAsync(FinancialOperationFilter financialoperationFilter);
         Task<FinancialOperation> GetByIdAsync(int Id);
 
     }

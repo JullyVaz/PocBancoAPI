@@ -4,7 +4,7 @@ namespace PocBancoAPI.ViewModels
 {
     public class FinancialOperationViewModel
     {
-        public int IdTransfer { get; set; }
+        public int IdFinancialOperation { get; set; }
         public DateTime Date { get; set; }
         public OperationTypeEnum OperationType { get; set; }
         public int IdAccountSource { get; set; }

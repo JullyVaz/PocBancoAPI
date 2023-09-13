@@ -14,14 +14,14 @@ using System.Text;
 
 namespace PocBancoAPI.Services
 {
-    public class AuthSevice : IAuthService
+    public class AuthService : IAuthService
     {
         private readonly IUserBusiness _userBusiness;
         private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
 
-        public AuthSevice(IUserBusiness userBusiness, IConfiguration configuration, IUnitOfWork unitOfWork, IMapper mapper)
+        public AuthService(IUserBusiness userBusiness, IConfiguration configuration, IUnitOfWork unitOfWork, IMapper mapper)
         {
             _userBusiness = userBusiness;
             _configuration = configuration;
@@ -29,13 +29,13 @@ namespace PocBancoAPI.Services
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponseViewModel<string>> Login(UserViewModel userLoginViewModel)
+        public async Task<ServiceResponseViewModel<string>> Login(UserLoginViewModel userLoginViewModel)
         {
             ServiceResponseViewModel<string> serviceResponseDTO = new ServiceResponseViewModel<string>();
             try
             {
                 UserDTO userOnDatabase = await _userBusiness.GetByEmail(userLoginViewModel.Email);
-                if (userOnDatabase.Id == 0)
+                if (userOnDatabase.IdUser == 0)
                 {
                     serviceResponseDTO.IsSucess = false;
                     serviceResponseDTO.Message = ConstantMessages.UserNotFound;
@@ -62,40 +62,43 @@ namespace PocBancoAPI.Services
 
         public async Task<ServiceResponseViewModel<UserViewModel>> Register(UserToInsertViewModel userToInsertViewModel)
         {
-            ServiceResponseViewModel<UserViewModel> serviceResponseDTO = new ServiceResponseViewModel<UserViewModel>();
+            ServiceResponseViewModel<UserViewModel> serviceResponseViewModel = new ServiceResponseViewModel<UserViewModel>();
             try
             {
                 UserDTO userOnDatabase = await _userBusiness.GetByEmail(userToInsertViewModel.Email);
                 if (userOnDatabase != null)
                 {
-                    serviceResponseDTO.IsSucess = false;
-                    serviceResponseDTO.Message = ConstantMessages.UserAlreadyExists;
-                    return serviceResponseDTO;
+                    serviceResponseViewModel.IsSucess = false;
+                    serviceResponseViewModel.Message = ConstantMessages.UserAlreadyExists;
+                    return serviceResponseViewModel;
                 }
 
                 UserDTO userDTO = _mapper.Map<UserDTO>(userToInsertViewModel);
                 PasswordHashUtility.CreateHash(userToInsertViewModel.Password, out byte[] passwordHash, out byte[] passwordSalt);
                 userDTO.PasswordHash = passwordHash;
                 userDTO.PasswordSalt = passwordSalt;
-                userDTO.Id = await _userBusiness.Insert(userDTO);
-                await _unitOfWork.CommitAsync();
-                serviceResponseDTO.Data = _mapper.Map<UserViewModel>(userDTO);
+                userDTO.IdUser = await _userBusiness.Insert(userDTO);
+                serviceResponseViewModel.Data = _mapper.Map<UserViewModel>(userDTO);
             }
             catch (Exception ex)
             {
-                serviceResponseDTO.IsSucess = false;
-                serviceResponseDTO.Message = ex.GetBaseException().Message;
-                await _unitOfWork.RollbackAscync();
+                serviceResponseViewModel.IsSucess = false;
+                serviceResponseViewModel.Message = ex.GetBaseException().Message;
+                await _unitOfWork.RollBackAsync();
+            }
+            finally
+            {
+                await _unitOfWork.CommitAsync();
             }
 
-            return serviceResponseDTO;
+            return serviceResponseViewModel;
         }
 
         public string CreateToken(UserDTO userDTO)
         {
             List<Claim> claims = new List<Claim>()
             {
-                new Claim(ClaimTypes.NameIdentifier, userDTO.Id.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, userDTO.IdUser.ToString()),
                 new Claim(ClaimTypes.Name, userDTO.Email)
             };
 
@@ -117,4 +120,4 @@ namespace PocBancoAPI.Services
     }
 }
 
-   
+
