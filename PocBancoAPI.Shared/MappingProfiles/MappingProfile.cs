@@ -20,6 +20,9 @@ namespace PocBancoAPI.Shared.MappingProfiles
             CreateMap<UserDTO, User>()
                 .ReverseMap();
 
+            CreateMap<AccountToInsertViewModel, AccountDTO>()
+                .ReverseMap();
+
             CreateMap<AccountViewModel, AccountDTO>()
                 .ReverseMap();
 

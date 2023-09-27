@@ -59,7 +59,7 @@ namespace PocBancoAPI.API
             using (IServiceScope _serviceScope = webApplication.Services.CreateScope())
             {
                 AppDbContext _appDbContext = _serviceScope.ServiceProvider.GetRequiredService<AppDbContext>();
-                _appDbContext.Database.EnsureCreated();
+                _appDbContext.Database.Migrate();
             }
         }
 

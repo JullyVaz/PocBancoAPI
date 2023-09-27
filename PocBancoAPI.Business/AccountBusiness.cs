@@ -45,20 +45,20 @@ public class AccountBusiness : IAccountBusiness
     {
         List<string> validationErrors = new List<string>();
 
-        if (string.IsNullOrWhiteSpace(accountDTO.FirstName))
-        {
-            validationErrors.Add("O campo 'FirstName' é obrigatório.");
-        }
+        //if (string.IsNullOrWhiteSpace(accountDTO.FirstName))
+        //{
+        //    validationErrors.Add("O campo 'FirstName' é obrigatório.");
+        //}
 
-        if (string.IsNullOrWhiteSpace(accountDTO.MiddleName))
-        {
-            validationErrors.Add("O campo 'MiddleName' é obrigatório.");
-        }
+        //if (string.IsNullOrWhiteSpace(accountDTO.MiddleName))
+        //{
+        //    validationErrors.Add("O campo 'MiddleName' é obrigatório.");
+        //}
 
-        if (string.IsNullOrWhiteSpace(accountDTO.LastName))
-        {
-            validationErrors.Add("O campo 'LastName' é obrigatório.");
-        }
+        //if (string.IsNullOrWhiteSpace(accountDTO.LastName))
+        //{
+        //    validationErrors.Add("O campo 'LastName' é obrigatório.");
+        //}
 
         if (validationErrors.Count > 0)
         {

@@ -53,16 +53,18 @@ namespace PocBancoAPI.Services
             return serviceResponseViewModel;
         }
 
-        public async Task<ServiceResponseViewModel<AccountViewModel>> InsertAsync(AccountViewModel accountViewModel)
+        public async Task<ServiceResponseViewModel<AccountViewModel>> InsertAsync(AccountToInsertViewModel accountViewModel)
         {
             ServiceResponseViewModel<AccountViewModel> serviceResponseViewModel = new ServiceResponseViewModel<AccountViewModel>();
             try
             {
                 AccountDTO accountDTO = _mapper.Map<AccountDTO>(accountViewModel);
-                accountViewModel.IdAccount = await _accountBusiness.InsertAsync(accountDTO);
-                serviceResponseViewModel.StatusCode = HttpStatusCode.Created;
-                serviceResponseViewModel.Data = accountViewModel;
+                int IdAccount = await _accountBusiness.InsertAsync(accountDTO);
                 await _unitOfWork.CommitAsync();
+
+                accountDTO.IdAccount = IdAccount;
+                serviceResponseViewModel.StatusCode = HttpStatusCode.Created;
+                serviceResponseViewModel.Data = _mapper.Map<AccountViewModel> (accountDTO);
             }
             catch (ArgumentException ex)
             {
