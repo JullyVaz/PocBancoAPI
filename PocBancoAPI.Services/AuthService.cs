@@ -82,16 +82,13 @@ namespace PocBancoAPI.Services
                 userDTO.IdUser = await _userBusiness.Insert(userDTO);
                 serviceResponseViewModel.StatusCode = HttpStatusCode.Created;
                 serviceResponseViewModel.Data = _mapper.Map<UserViewModel>(userDTO);
+                await _unitOfWork.CommitAsync();
             }
             catch (Exception ex)
             {
                 serviceResponseViewModel.IsSucess = false;
                 serviceResponseViewModel.Message = ex.GetBaseException().Message;
                 await _unitOfWork.RollBackAsync();
-            }
-            finally
-            {
-                await _unitOfWork.CommitAsync();
             }
 
             return serviceResponseViewModel;

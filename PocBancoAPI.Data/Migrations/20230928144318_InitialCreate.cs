@@ -17,10 +17,11 @@ namespace PocBancoAPI.Data.Migrations
                 {
                     IdUser = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MiddleName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Document = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MiddleName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Document = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PasswordHash = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     PasswordSalt = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
@@ -37,6 +38,7 @@ namespace PocBancoAPI.Data.Migrations
                     IdAccount = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IdUser = table.Column<int>(type: "int", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
                     Balance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     AccountType = table.Column<int>(type: "int", nullable: false)
                 },
@@ -59,7 +61,7 @@ namespace PocBancoAPI.Data.Migrations
                     IdAccount = table.Column<int>(type: "int", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     OperationType = table.Column<int>(type: "int", nullable: false),
-                    IdAccountTarget = table.Column<int>(type: "int", nullable: true),
+                    IdAccountSource = table.Column<int>(type: "int", nullable: true),
                     Value = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>

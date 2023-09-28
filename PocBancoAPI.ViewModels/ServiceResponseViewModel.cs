@@ -1,6 +1,4 @@
 ﻿using System.Net;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
 namespace PocBancoAPI.ViewModels;
 
 public class ServiceResponseViewModel<T>
@@ -23,10 +21,4 @@ public class ServiceResponseViewModel<T>
     public string Message { get; set; }
     public bool HasData { get; set; }
     public bool IsSucess { get; set; }
-
-    public void SetData(T data)
-    {
-        Data = data;
-        HasData = true;
-    }
 }
