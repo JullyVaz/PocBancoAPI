@@ -9,6 +9,6 @@ namespace PocBancoAPI.Data.Interfaces
         Task<int> UpdateAsync(FinancialOperation financialoperation);
         Task<List<FinancialOperation>> GetAllAsync(FinancialOperationFilter financialoperationFilter);
         Task<FinancialOperation> GetByIdAsync(int Id);
-
+       
     }
 }

@@ -8,6 +8,7 @@ using PocBancoAPI.ViewModels.Filters;
 using System.Net;
 using System.Collections.Generic;
 using System;
+using PocBancoAPI.Enums;
 
 namespace PocBancoAPI.Services
 {
@@ -58,17 +59,18 @@ namespace PocBancoAPI.Services
             return serviceResponseViewModel;
         }
 
-        public async Task<ServiceResponseViewModel<FinancialOperationViewModel>> DepositAsync(FinancialOperationDeposityViewModel transferViewModel)
+        public async Task<ServiceResponseViewModel<FinancialOperationViewModel>> DepositAsync(FinancialOperationDeposityViewModel financialOperationViewModel)
         {
             ServiceResponseViewModel<FinancialOperationViewModel> serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>();
             try
             {
-                FinancialOperationDTO transferDTO = _mapper.Map<FinancialOperationDTO>(transferViewModel);
-                int financialOperationId = await _financialOperationBusiness.InsertAsync(transferDTO);
+                FinancialOperationDTO financialOperationDTO = _mapper.Map<FinancialOperationDTO>(financialOperationViewModel);
+                financialOperationDTO.OperationType = OperationTypeEnum.Deposit;
+                int financialOperationId = await _financialOperationBusiness.InsertAsync(financialOperationDTO);
 
-                FinancialOperationDTO financialOperationDTO = await _financialOperationBusiness.GetByIdAsync(financialOperationId);
+                FinancialOperationDTO financialOperationDTODatabase = await _financialOperationBusiness.GetByIdAsync(financialOperationId);
                 serviceResponseViewModel.StatusCode = HttpStatusCode.Created;
-                serviceResponseViewModel.Data = _mapper.Map<FinancialOperationViewModel>(financialOperationDTO);
+                serviceResponseViewModel.Data = _mapper.Map<FinancialOperationViewModel>(financialOperationDTODatabase);
                 await _unitOfWork.CommitAsync();
             }
             catch (Exception ex)
@@ -84,12 +86,13 @@ namespace PocBancoAPI.Services
             ServiceResponseViewModel<FinancialOperationViewModel> serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>();
             try
             {
-                FinancialOperationDTO transferDTO = _mapper.Map<FinancialOperationDTO>(transferViewModel);
-                int financialOperationId = await _financialOperationBusiness.InsertAsync(transferDTO);
+                FinancialOperationDTO financialOperationDTO = _mapper.Map<FinancialOperationDTO>(transferViewModel);
+                financialOperationDTO.OperationType = OperationTypeEnum.Withdraw;
+                int financialOperationId = await _financialOperationBusiness.InsertAsync(financialOperationDTO);
 
-                FinancialOperationDTO financialOperationDTO = await _financialOperationBusiness.GetByIdAsync(financialOperationId);
+                FinancialOperationDTO financialOperationDTODatabase = await _financialOperationBusiness.GetByIdAsync(financialOperationId);
                 serviceResponseViewModel.StatusCode = HttpStatusCode.Created;
-                serviceResponseViewModel.Data = _mapper.Map<FinancialOperationViewModel>(financialOperationDTO);
+                serviceResponseViewModel.Data = _mapper.Map<FinancialOperationViewModel>(financialOperationDTODatabase);
                 await _unitOfWork.CommitAsync();
             }
             catch (Exception ex)
@@ -105,12 +108,13 @@ namespace PocBancoAPI.Services
             ServiceResponseViewModel<FinancialOperationViewModel> serviceResponseViewModel = new ServiceResponseViewModel<FinancialOperationViewModel>();
             try
             {
-                FinancialOperationDTO transferDTO = _mapper.Map<FinancialOperationDTO>(transferViewModel);
-                int financialOperationId = await _financialOperationBusiness.InsertAsync(transferDTO);
+                FinancialOperationDTO financialOperationDTO = _mapper.Map<FinancialOperationDTO>(transferViewModel);
+                financialOperationDTO.OperationType = OperationTypeEnum.Transfer;
+                int financialOperationId = await _financialOperationBusiness.InsertAsync(financialOperationDTO);
 
-                FinancialOperationDTO financialOperationDTO = await _financialOperationBusiness.GetByIdAsync(financialOperationId);
+                FinancialOperationDTO financialOperationDTODatabase = await _financialOperationBusiness.GetByIdAsync(financialOperationId);
                 serviceResponseViewModel.StatusCode = HttpStatusCode.Created;
-                serviceResponseViewModel.Data = _mapper.Map<FinancialOperationViewModel>(financialOperationDTO);  
+                serviceResponseViewModel.Data = _mapper.Map<FinancialOperationViewModel>(financialOperationDTODatabase);  
                 await _unitOfWork.CommitAsync();
             }
             catch (Exception ex)

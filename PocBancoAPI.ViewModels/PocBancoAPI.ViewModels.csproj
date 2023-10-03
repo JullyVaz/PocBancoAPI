@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Filters\NovaPasta\**" />
+    <EmbeddedResource Remove="Filters\NovaPasta\**" />
+    <None Remove="Filters\NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PocBancoAPI.Enums\PocBancoAPI.Enums.csproj" />
   </ItemGroup>
 

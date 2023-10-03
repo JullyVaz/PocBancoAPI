@@ -21,6 +21,8 @@ namespace PocBancoAPI.Data.Repositories
 
             List<Account> accounts = await accountsQuery
                 .AsNoTracking()
+                .Include(x => x.User).AsNoTracking()
+                .Include(x => x.FinancialOperations).AsNoTracking()
                 .ToListAsync();
 
             return accounts;
@@ -31,6 +33,8 @@ namespace PocBancoAPI.Data.Repositories
             Account account = await _appDbContext
                 .Set<Account>()
                 .AsNoTracking()
+                .Include(x => x.User).AsNoTracking()
+                .Include(x  => x.FinancialOperations).AsNoTracking()
                 .FirstOrDefaultAsync(_account => _account.IdAccount == Id);
 
             return account;

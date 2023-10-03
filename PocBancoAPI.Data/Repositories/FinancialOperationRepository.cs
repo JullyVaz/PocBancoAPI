@@ -15,14 +15,16 @@ namespace PocBancoAPI.Data.Repositories
             _appDbContext = appDbContext;
         }
 
-        public async Task<List<FinancialOperation>> GetAllAsync(FinancialOperationFilter financialoperationFilter)
+        public async Task<List<FinancialOperation>> GetAllAsync(FinancialOperationFilter financialOperationFilter)
         {
             IQueryable<FinancialOperation> financialoperationsQuery = _appDbContext.Set<FinancialOperation>()
-                .Where(_financialoperation => financialoperationFilter.IdFinancialOperation != 0 ?
-                _financialoperation.IdFinancialOperation == (int)financialoperationFilter.IdFinancialOperation : true);
+                .Where(_financialoperation => financialOperationFilter.IdFinancialOperation != 0 ?
+                _financialoperation.IdFinancialOperation == (int)financialOperationFilter.IdFinancialOperation : true);
 
             List<FinancialOperation> financialoperations = await financialoperationsQuery
                 .AsNoTracking()
+                .Skip(financialOperationFilter.skip)
+                .Take(financialOperationFilter.pageSize)
                 .ToListAsync();
 
             return financialoperations;
