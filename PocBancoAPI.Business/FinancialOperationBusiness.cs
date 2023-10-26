@@ -66,6 +66,44 @@ namespace PocBancoAPI.Business
             }
         }
 
+        private void ValidateDeposit(FinancialOperationDTO financialOperationDTO, List<string> validationErrors)
+        {
+            if (financialOperationDTO.Value == 0)
+            {
+                validationErrors.Add("O valor do depósito não pode ser zero.");
+            }
+        }
+
+        private void ValidateWithdrawal(FinancialOperationDTO financialOperationDTO, List<string> validationErrors)
+        {
+            if (financialOperationDTO.Value == 0)
+            {
+                validationErrors.Add("O valor do saque não pode ser zero.");
+            }
+        }
+
+        private void ValidateTransfer(FinancialOperationDTO financialOperationDTO, List<string> validationErrors)
+        {
+            if (string.IsNullOrWhiteSpace(financialOperationDTO.IdAccountTarget.ToString()))
+            {
+                validationErrors.Add("O campo 'IdAccountTarget' é obrigatório.");
+            }
+            else
+            {
+                CheckAccountExistsAsync(financialOperationDTO.IdAccountTarget, validationErrors).Wait();
+            }
+
+            if (financialOperationDTO.IdAccount == financialOperationDTO.IdAccountTarget)
+            {
+                validationErrors.Add("A conta de origem e a conta de destino não podem ser iguais.");
+            }
+
+            if (financialOperationDTO.Value == 0)
+            {
+                validationErrors.Add("O valor da transferência não pode ser zero.");
+            }
+        }
+
         private void Check(FinancialOperationDTO financialOperationDTO)
         {
             List<string> validationErrors = new List<string>();
@@ -81,39 +119,18 @@ namespace PocBancoAPI.Business
 
                 if (financialOperationDTO.OperationType == Enums.OperationTypeEnum.Deposit)
                 {
-                    if (financialOperationDTO.Value == 0)
-                    {
-                        validationErrors.Add("O valor do depósito não pode ser zero.");
-                    }
+                    ValidateDeposit(financialOperationDTO, validationErrors);
                 }
                 else if (financialOperationDTO.OperationType == Enums.OperationTypeEnum.Withdraw)
                 {
                     // Verifica se o saldo é suficiente para o saque.
-                    CheckAccountBalanceAsync(financialOperationDTO.IdAccount, financialOperationDTO.Value, validationErrors).Wait();
+                    ValidateWithdrawal(financialOperationDTO, validationErrors);
                 }
             }
 
             if (financialOperationDTO.OperationType == Enums.OperationTypeEnum.Transfer)
             {
-                if (string.IsNullOrWhiteSpace(financialOperationDTO.IdAccountTarget.ToString()))
-                {
-                    validationErrors.Add("O campo 'IdAccountTarget' é obrigatório.");
-                }
-                else
-                {
-                    // verifica se a conta de destino existe.
-                    CheckAccountExistsAsync(financialOperationDTO.IdAccountTarget, validationErrors).Wait();
-                }
-
-                if (financialOperationDTO.IdAccount == financialOperationDTO.IdAccountTarget)
-                {
-                    validationErrors.Add("A conta de origem e a conta de destino não podem ser iguais.");
-                }
-
-                if (financialOperationDTO.Value == 0)
-                {
-                    validationErrors.Add("O valor da transferência não pode ser zero.");
-                }
+                ValidateTransfer(financialOperationDTO, validationErrors);
             }
 
             if (validationErrors.Count > 0)
@@ -129,6 +146,7 @@ namespace PocBancoAPI.Business
                 throw new ArgumentException(errorMessage.ToString());
             }
         }
+
 
         public async Task<FinancialOperationDTO> UpdateAsync(FinancialOperationDTO financialOperationDTO)
         {

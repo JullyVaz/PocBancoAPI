@@ -45,20 +45,10 @@ public class AccountBusiness : IAccountBusiness
     {
         List<string> validationErrors = new List<string>();
 
-        //if (string.IsNullOrWhiteSpace(accountDTO.FirstName))
-        //{
-        //    validationErrors.Add("O campo 'FirstName' é obrigatório.");
-        //}
-
-        //if (string.IsNullOrWhiteSpace(accountDTO.MiddleName))
-        //{
-        //    validationErrors.Add("O campo 'MiddleName' é obrigatório.");
-        //}
-
-        //if (string.IsNullOrWhiteSpace(accountDTO.LastName))
-        //{
-        //    validationErrors.Add("O campo 'LastName' é obrigatório.");
-        //}
+        if (accountDTO.IdAccount == 0)
+        {
+            validationErrors.Add("IdAccount não pode ser 0.");
+        }
 
         if (validationErrors.Count > 0)
         {
@@ -72,10 +62,10 @@ public class AccountBusiness : IAccountBusiness
 
             throw new ArgumentException(errorMessage.ToString());
         }
-
     }
 
-    public async Task<AccountDTO> UpdateAsync(AccountDTO accountDTO)
+
+public async Task<AccountDTO> UpdateAsync(AccountDTO accountDTO)
     {
         if (string.IsNullOrWhiteSpace(accountDTO.IdAccount.ToString()))
         {
