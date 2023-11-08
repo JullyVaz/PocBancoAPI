@@ -36,19 +36,19 @@ namespace PocBancoAPI.Tests
             // Arrange
             var filter = new AccountFilter();
             var accounts = new List<Account>
-    {
-        new Account
-        {
-            IdAccount = 1,
-            IdUser = 1,
-            IsActive = true,
-            Balance = 1000.0m,
-            AccountType = AccountTypeEnum.PessoaJuridica,
-            FinancialOperations = new List<FinancialOperation>()
-        }
-    };
+            {
+                new Account
+                {
+                    IdAccount = 1,
+                    IdUser = 1,
+                    IsActive = true,
+                    Balance = 1000.0m,
+                    AccountType = AccountTypeEnum.PessoaJuridica,
+                    FinancialOperations = new List<FinancialOperation>()
+                }
+            };
 
-            _mockAccountRepository.Setup(x => x.GetAllAsync(filter)).ReturnsAsync(accounts);
+            _mockAccountRepository.Setup(x => x.GetAllAsync(It.IsAny<AccountFilter>())).ReturnsAsync(accounts);
             _mockMapper.Setup(x => x.Map<List<AccountDTO>>(accounts)).Returns(new List<AccountDTO> { new AccountDTO() });
 
             var accountBusiness = new AccountBusiness(_mockAccountRepository.Object, _mockMapper.Object);

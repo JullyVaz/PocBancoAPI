@@ -50,7 +50,7 @@ namespace PocBancoAPI.Business
         {
             FinancialOperation financialOperation = await _financialOperationRepository.GetByIdAsync(IdAccount);
 
-            if (financialOperation == null)
+            if (financialOperation.IdAccount == 0)
             {
                 validationErrors.Add($"A conta com o ID {IdAccount} não existe.");
             }
@@ -108,7 +108,7 @@ namespace PocBancoAPI.Business
         {
             List<string> validationErrors = new List<string>();
 
-            if (string.IsNullOrWhiteSpace(financialOperationDTO.IdAccount.ToString()))
+            if (financialOperationDTO.IdAccount == 0)
             {
                 validationErrors.Add("O campo 'IdAccount' é obrigatório.");
             }

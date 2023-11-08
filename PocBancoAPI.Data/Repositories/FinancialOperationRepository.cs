@@ -37,7 +37,7 @@ namespace PocBancoAPI.Data.Repositories
                 .AsNoTracking()
                 .FirstOrDefaultAsync(_transfer => _transfer.IdFinancialOperation == Id);
 
-            return transfer;
+            return transfer == null ? new FinancialOperation() : transfer;
 
         }
 
@@ -49,43 +49,11 @@ namespace PocBancoAPI.Data.Repositories
             return IdFinancialOperation;
         }
 
-        public Task<int> UpdateAsync(FinancialOperation transfer)
+        public async Task<int> UpdateAsync(FinancialOperation financialOperation)
         {
-            throw new NotImplementedException();
+            _appDbContext.Set<FinancialOperation>().Update(financialOperation);
+            int result = await _appDbContext.SaveChangesAsync();
+            return result;
         }
-
-        //public async Task<int> UpdateAsync(Transfer transfer)
-        //{
-        //    // Verificando se a conta origem e destino existem???
-        //    Account existingAccount = await _appDbContext.Set<Account>()
-        //        .FirstOrDefaultAsync(_account => _account.IdAccount == account.IdAccount);
-
-        //    if (existingAccount != null)
-        //    {
-        //        // Atualiza as propriedades da conta existente com os novos valores
-        //        _appDbContext.Entry(existingAccount).CurrentValues.SetValues(account);
-
-        //        // Salva as alterações no banco de dados
-        //        int result = await _appDbContext.SaveChangesAsync();
-        //        return result;
-        //    }
-        //    else
-        //    {
-        //        return NotFound();
-        //    }
-        //}
-
-        //private int NotFound()
-        //{
-        //    throw new ArgumentException("O Id Account não foi encontrado");
-        //}
-
-
-        //public async Task<int> UpdateAsync(Account account)
-        //{
-        //_appDbContext.Set<Account>().Update(account);
-        //int result = await _appDbContext.SaveChangesAsync();
-        //return result;
-        //}
     }
 }
