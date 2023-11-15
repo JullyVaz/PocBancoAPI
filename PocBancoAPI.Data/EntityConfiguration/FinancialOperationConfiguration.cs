@@ -13,7 +13,10 @@ namespace PocBancoAPI.Data.EntityConfiguration
                      builder.HasOne(_financialoperation => _financialoperation.Account)
                     .WithMany(_account => _account.FinancialOperations)
                     .HasForeignKey(_financialoperation => _financialoperation.IdAccount)
-                    .OnDelete(DeleteBehavior.NoAction);                      
+                    .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Property(x => x.IdAccountSource).IsRequired(false);
+            builder.Property(x => x.IdAccount).IsRequired(true);
         }
     }
 }

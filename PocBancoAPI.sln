@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PocBancoAPI.Shared", "PocBa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PocBancoAPI.ViewModels", "PocBancoAPI.ViewModels\PocBancoAPI.ViewModels.csproj", "{2975D35F-26E1-42DE-AE75-B7AFB08E27FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocBancoAPI.Enums", "PocBancoAPI.Enums\PocBancoAPI.Enums.csproj", "{16162C73-5015-4A69-8E76-94C82E9F5818}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PocBancoAPI.Enums", "PocBancoAPI.Enums\PocBancoAPI.Enums.csproj", "{16162C73-5015-4A69-8E76-94C82E9F5818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocBancoAPI.Tests", "PocBancoAPI.Tests\PocBancoAPI.Tests.csproj", "{82CFE471-2805-430B-89E4-B7FB7D8E5F53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{16162C73-5015-4A69-8E76-94C82E9F5818}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16162C73-5015-4A69-8E76-94C82E9F5818}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16162C73-5015-4A69-8E76-94C82E9F5818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82CFE471-2805-430B-89E4-B7FB7D8E5F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82CFE471-2805-430B-89E4-B7FB7D8E5F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82CFE471-2805-430B-89E4-B7FB7D8E5F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82CFE471-2805-430B-89E4-B7FB7D8E5F53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

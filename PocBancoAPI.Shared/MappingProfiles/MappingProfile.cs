@@ -11,6 +11,7 @@ namespace PocBancoAPI.Shared.MappingProfiles
         {
             CreateMap<UserLoginViewModel, UserDTO>()
                 .ReverseMap();
+
             CreateMap<UserViewModel, UserDTO>()
                 .ReverseMap();
 
@@ -18,6 +19,9 @@ namespace PocBancoAPI.Shared.MappingProfiles
                 .ReverseMap();
 
             CreateMap<UserDTO, User>()
+                .ReverseMap();
+
+            CreateMap<AccountToInsertViewModel, AccountDTO>()
                 .ReverseMap();
 
             CreateMap<AccountViewModel, AccountDTO>()
@@ -29,8 +33,25 @@ namespace PocBancoAPI.Shared.MappingProfiles
             CreateMap<FinancialOperationViewModel, FinancialOperationDTO>()
                .ReverseMap();
 
+            CreateMap<FinancialOperationDeposityViewModel, FinancialOperationDTO>()
+                .ReverseMap();
+
+            CreateMap<FinancialOperationWithdrawViewModel, FinancialOperationDTO>()
+               .ReverseMap();
+
+            CreateMap<FinancialOperationTransferViewModel, FinancialOperationDTO>()
+               .ReverseMap();
+
             CreateMap<FinancialOperationDTO, FinancialOperation>()
                 .ReverseMap();
+
+            CreateMap<Account, AccountDTO>()
+                .ForMember(dest => dest.UserDTO, src => src.MapFrom(opt => opt.User))
+                .ForMember(dest => dest.FinancialOperationDTOs, src => src.MapFrom(opt => opt.FinancialOperations));
+
+            CreateMap<AccountDTO, AccountViewModel>()
+                .ForMember(dest => dest.UserViewModel, src => src.MapFrom(opt => opt.UserDTO))
+                .ForMember(dest => dest.FinancialOperationViewModels, src => src.MapFrom(opt => opt.FinancialOperationDTOs));
         }
     }
 }

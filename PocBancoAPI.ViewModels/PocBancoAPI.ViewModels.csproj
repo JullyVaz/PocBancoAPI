@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Filters\NovaPasta\**" />
+    <EmbeddedResource Remove="Filters\NovaPasta\**" />
+    <None Remove="Filters\NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoFixture.AutoMoq" Version="4.18.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PocBancoAPI.Enums\PocBancoAPI.Enums.csproj" />
   </ItemGroup>
 

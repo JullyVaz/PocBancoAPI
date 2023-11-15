@@ -9,6 +9,7 @@ namespace PocBancoAPI.DTOs
         public string MiddleName { get; set; } = default!;
         public string LastName { get; set; } = default!;
         public string Email { get; set; } = default!;
+        public string Document { get; set; }
         public byte[] PasswordHash { get; set; } = default!;
         public byte[] PasswordSalt { get; set; } = default!;
 

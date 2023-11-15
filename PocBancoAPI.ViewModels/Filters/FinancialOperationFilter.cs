@@ -2,7 +2,7 @@
 
 namespace PocBancoAPI.ViewModels.Filters
 {
-    public class FinancialOperationFilter
+    public class FinancialOperationFilter : BaseFilter
     {
         public int IdFinancialOperation{ get; set; }
         public OperationTypeEnum OperationType { get; set; }
@@ -10,6 +10,8 @@ namespace PocBancoAPI.ViewModels.Filters
         public int IdAccountTarget { get; set; }
         public DateTime? StartTransferDate { get; set; }
         public DateTime? EndTransferDate { get; set; }
+
+
 
     }
 }

@@ -9,6 +9,7 @@ using PocBancoAPI.Shared.Messages;
 using PocBancoAPI.Shared.PasswordUtility;
 using PocBancoAPI.ViewModels;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 
@@ -31,33 +32,34 @@ namespace PocBancoAPI.Services
 
         public async Task<ServiceResponseViewModel<string>> Login(UserLoginViewModel userLoginViewModel)
         {
-            ServiceResponseViewModel<string> serviceResponseDTO = new ServiceResponseViewModel<string>();
+            ServiceResponseViewModel<string> serviceResponseViewModel = new ServiceResponseViewModel<string>();
             try
             {
                 UserDTO userOnDatabase = await _userBusiness.GetByEmail(userLoginViewModel.Email);
                 if (userOnDatabase.IdUser == 0)
                 {
-                    serviceResponseDTO.IsSucess = false;
-                    serviceResponseDTO.Message = ConstantMessages.UserNotFound;
-                    return serviceResponseDTO;
+                    serviceResponseViewModel.IsSucess = false;
+                    serviceResponseViewModel.Message = ConstantMessages.UserNotFound;
+                    return serviceResponseViewModel;
                 }
                 else if (!PasswordHashUtility.CheckHash(userLoginViewModel.Password, userOnDatabase.PasswordHash, userOnDatabase.PasswordSalt))
                 {
-                    serviceResponseDTO.IsSucess = false;
-                    serviceResponseDTO.Message = ConstantMessages.UserNotFound;
-                    return serviceResponseDTO;
+                    serviceResponseViewModel.IsSucess = false;
+                    serviceResponseViewModel.Message = ConstantMessages.UserOrPasswordInvalid;
+                    return serviceResponseViewModel;
                 }
 
                 string token = CreateToken(userOnDatabase);
-                serviceResponseDTO.Data = token;
+                serviceResponseViewModel.Data = token;
+                serviceResponseViewModel.StatusCode = HttpStatusCode.OK;
             }
             catch (Exception ex)
             {
-                serviceResponseDTO.IsSucess = false;
-                serviceResponseDTO.Message = ex.GetBaseException().Message;
+                serviceResponseViewModel.IsSucess = false;
+                serviceResponseViewModel.Message = ex.GetBaseException().Message;
             }
 
-            return serviceResponseDTO;
+            return serviceResponseViewModel;
         }
 
         public async Task<ServiceResponseViewModel<UserViewModel>> Register(UserToInsertViewModel userToInsertViewModel)
@@ -78,17 +80,15 @@ namespace PocBancoAPI.Services
                 userDTO.PasswordHash = passwordHash;
                 userDTO.PasswordSalt = passwordSalt;
                 userDTO.IdUser = await _userBusiness.Insert(userDTO);
+                serviceResponseViewModel.StatusCode = HttpStatusCode.Created;
                 serviceResponseViewModel.Data = _mapper.Map<UserViewModel>(userDTO);
+                await _unitOfWork.CommitAsync();
             }
             catch (Exception ex)
             {
                 serviceResponseViewModel.IsSucess = false;
                 serviceResponseViewModel.Message = ex.GetBaseException().Message;
                 await _unitOfWork.RollBackAsync();
-            }
-            finally
-            {
-                await _unitOfWork.CommitAsync();
             }
 
             return serviceResponseViewModel;

@@ -10,7 +10,7 @@ namespace PocBancoAPI.Entities
         public Account Account { get; set; }
         public DateTime Date { get; set; }
         public OperationTypeEnum OperationType { get; set; }
-        public int? IdAccountTarget { get; set; }
+        public int? IdAccountSource { get; set; }
         public decimal Value { get; set; }
     }
 }

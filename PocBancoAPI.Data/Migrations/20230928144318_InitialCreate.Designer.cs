@@ -12,8 +12,8 @@ using PocBancoAPI.Data.Context;
 namespace PocBancoAPI.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230913144013_IntialCreate")]
-    partial class IntialCreate
+    [Migration("20230928144318_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,24 +39,11 @@ namespace PocBancoAPI.Data.Migrations
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Document")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("IdUser")
                         .HasColumnType("int");
 
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MiddleName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.HasKey("IdAccount");
 
@@ -79,7 +66,7 @@ namespace PocBancoAPI.Data.Migrations
                     b.Property<int>("IdAccount")
                         .HasColumnType("int");
 
-                    b.Property<int?>("IdAccountTarget")
+                    b.Property<int?>("IdAccountSource")
                         .HasColumnType("int");
 
                     b.Property<int>("OperationType")
@@ -103,20 +90,23 @@ namespace PocBancoAPI.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdUser"));
 
+                    b.Property<string>("Document")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MiddleName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("PasswordHash")

@@ -10,7 +10,7 @@ namespace PocBancoAPI.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class AccountController : ControllerBase
     {
         private readonly IAccountService _accountService;
@@ -23,9 +23,9 @@ namespace PocBancoAPI.API.Controllers
         [Route("insert")]
         [ProducesResponseType(typeof(ServiceResponseViewModel<AccountViewModel>), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ServiceResponseViewModel<AccountViewModel>), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Insert([FromBody] AccountViewModel accountViewModel)
+        public async Task<IActionResult> Insert([FromBody] AccountToInsertViewModel accountToInsertViewModel)
         {
-            ServiceResponseViewModel<AccountViewModel> serviceResponseViewModel = await _accountService.InsertAsync(accountViewModel);
+            ServiceResponseViewModel<AccountViewModel> serviceResponseViewModel = await _accountService.InsertAsync(accountToInsertViewModel);
             return StatusCode((int)serviceResponseViewModel.StatusCode, serviceResponseViewModel);
         }
 

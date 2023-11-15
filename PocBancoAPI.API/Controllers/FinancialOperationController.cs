@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PocBancoAPI.Services;
 using PocBancoAPI.Services.Interfaces;
 using PocBancoAPI.ViewModels;
 using PocBancoAPI.ViewModels.Filters;
-using System.Collections.Generic;
-using System.Net;
 
 namespace PocBancoAPI.API.Controllers
 {
@@ -19,12 +16,33 @@ namespace PocBancoAPI.API.Controllers
         }
 
         [HttpPost]
-        [Route("insert")]
+        [Route("deposit")]
         [ProducesResponseType(typeof(ServiceResponseViewModel<FinancialOperationViewModel>), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ServiceResponseViewModel<FinancialOperationViewModel>), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Insert([FromBody] FinancialOperationViewModel financialOperationViewModel)
+        public async Task<IActionResult> Deposit([FromBody] FinancialOperationDeposityViewModel financialOperationViewModel)
         {
-            ServiceResponseViewModel<FinancialOperationViewModel> serviceResponseViewModel = await _financialOperationService.InsertAsync(financialOperationViewModel);
+            ServiceResponseViewModel<FinancialOperationViewModel> serviceResponseViewModel = await _financialOperationService.DepositAsync(financialOperationViewModel);
+            return StatusCode((int)serviceResponseViewModel.StatusCode, serviceResponseViewModel);
+        }
+
+
+        [HttpPost]
+        [Route("withdraw")]
+        [ProducesResponseType(typeof(ServiceResponseViewModel<FinancialOperationViewModel>), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ServiceResponseViewModel<FinancialOperationViewModel>), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Withdraw([FromBody] FinancialOperationWithdrawViewModel financialOperationViewModel)
+        {
+            ServiceResponseViewModel<FinancialOperationViewModel> serviceResponseViewModel = await _financialOperationService.WithdrawAsync(financialOperationViewModel);
+            return StatusCode((int)serviceResponseViewModel.StatusCode, serviceResponseViewModel);
+        }
+
+        [HttpPost]
+        [Route("transfer")]
+        [ProducesResponseType(typeof(ServiceResponseViewModel<FinancialOperationViewModel>), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ServiceResponseViewModel<FinancialOperationViewModel>), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Transfer([FromBody] FinancialOperationTransferViewModel financialOperationViewModel)
+        {
+            ServiceResponseViewModel<FinancialOperationViewModel> serviceResponseViewModel = await _financialOperationService.TransferAsync(financialOperationViewModel);
             return StatusCode((int)serviceResponseViewModel.StatusCode, serviceResponseViewModel);
         }
 

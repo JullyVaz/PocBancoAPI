@@ -3,7 +3,6 @@ using PocBancoAPI.Business.Interfaces;
 using PocBancoAPI.Data.Interfaces;
 using PocBancoAPI.DTOs;
 using PocBancoAPI.Entities;
-using PocBancoAPI.ViewModels;
 using PocBancoAPI.ViewModels.Filters;
 using System.Text;
 
@@ -13,11 +12,13 @@ namespace PocBancoAPI.Business
     public class FinancialOperationBusiness : IFinancialOperationBusiness
     {
         private readonly IFinancialOperationRepository _financialOperationRepository;
+        private readonly IAccountRepository _accountRepository;
         private readonly IMapper _mapper;
 
-        public FinancialOperationBusiness(IFinancialOperationRepository financialOperationRepository, IMapper mapper)
+        public FinancialOperationBusiness(IFinancialOperationRepository financialOperationRepository, IAccountRepository accountRepository, IMapper mapper)
         {
             _financialOperationRepository = financialOperationRepository;
+            _accountRepository = accountRepository;
             _mapper = mapper;
         }
 
@@ -31,7 +32,7 @@ namespace PocBancoAPI.Business
 
         public async Task<FinancialOperationDTO> GetByIdAsync(int id)
         {
-           FinancialOperation financialOperation = await _financialOperationRepository.GetByIdAsync(id);
+            FinancialOperation financialOperation = await _financialOperationRepository.GetByIdAsync(id);
             FinancialOperationDTO financialOperationDTO = _mapper.Map<FinancialOperationDTO>(financialOperation);
             return financialOperationDTO;
         }
@@ -45,22 +46,92 @@ namespace PocBancoAPI.Business
             return financialoperationId;
         }
 
-        private void Check(FinancialOperationDTO financialoperationDTO)
+        private async Task CheckAccountExistsAsync(int IdAccount, List<string> validationErrors)
         {
-            List<string> validationErrors = new List<string>();
+            FinancialOperation financialOperation = await _financialOperationRepository.GetByIdAsync(IdAccount);
 
-            if (string.IsNullOrWhiteSpace(financialoperationDTO.IdAccount.ToString()))
+            if (financialOperation == null)
             {
-                validationErrors.Add("O campo ' IdAccount' é obrigatório.");
+                validationErrors.Add($"A conta com o ID {IdAccount} não existe.");
             }
+        }
 
-            if (financialoperationDTO.OperationType == Enums.OperationTypeEnum.Transfer
-                && financialoperationDTO.IdAccountTarget == null
-                && financialoperationDTO.IdAccountTarget == 0)
+        private async Task CheckAccountBalanceAsync(int IdAccount, decimal withdrawvalue, List<string> validationErrors)
+        {
+            Account account = await _accountRepository.GetByIdAsync(IdAccount);
+
+            if (account.Balance < withdrawvalue)
+            {
+                validationErrors.Add($"Saldo insuficiente para realizar o saque. Saldo atual: {account.Balance}, Valor do saque: {withdrawvalue}");
+            }
+        }
+
+        private void ValidateDeposit(FinancialOperationDTO financialOperationDTO, List<string> validationErrors)
+        {
+            if (financialOperationDTO.Value == 0)
+            {
+                validationErrors.Add("O valor do depósito não pode ser zero.");
+            }
+        }
+
+        private void ValidateWithdrawal(FinancialOperationDTO financialOperationDTO, List<string> validationErrors)
+        {
+            if (financialOperationDTO.Value == 0)
+            {
+                validationErrors.Add("O valor do saque não pode ser zero.");
+            }
+        }
+
+        private void ValidateTransfer(FinancialOperationDTO financialOperationDTO, List<string> validationErrors)
+        {
+            if (string.IsNullOrWhiteSpace(financialOperationDTO.IdAccountTarget.ToString()))
             {
                 validationErrors.Add("O campo 'IdAccountTarget' é obrigatório.");
             }
+            else
+            {
+                CheckAccountExistsAsync(financialOperationDTO.IdAccountTarget, validationErrors).Wait();
+            }
 
+            if (financialOperationDTO.IdAccount == financialOperationDTO.IdAccountTarget)
+            {
+                validationErrors.Add("A conta de origem e a conta de destino não podem ser iguais.");
+            }
+
+            if (financialOperationDTO.Value == 0)
+            {
+                validationErrors.Add("O valor da transferência não pode ser zero.");
+            }
+        }
+
+        private void Check(FinancialOperationDTO financialOperationDTO)
+        {
+            List<string> validationErrors = new List<string>();
+
+            if (string.IsNullOrWhiteSpace(financialOperationDTO.IdAccount.ToString()))
+            {
+                validationErrors.Add("O campo 'IdAccount' é obrigatório.");
+            }
+            else
+            {
+                // Verifica se a conta de origem existe.
+                CheckAccountExistsAsync(financialOperationDTO.IdAccount, validationErrors).Wait();
+
+                if (financialOperationDTO.OperationType == Enums.OperationTypeEnum.Deposit)
+                {
+                    ValidateDeposit(financialOperationDTO, validationErrors);
+                }
+                else if (financialOperationDTO.OperationType == Enums.OperationTypeEnum.Withdraw)
+                {
+                    // Verifica se o saldo é suficiente para o saque.
+                    ValidateWithdrawal(financialOperationDTO, validationErrors);
+                }
+            }
+
+            if (financialOperationDTO.OperationType == Enums.OperationTypeEnum.Transfer)
+            {
+                ValidateTransfer(financialOperationDTO, validationErrors);
+            }
 
             if (validationErrors.Count > 0)
             {
@@ -76,19 +147,19 @@ namespace PocBancoAPI.Business
             }
         }
 
-        public async Task<FinancialOperationDTO> UpdateAsync(FinancialOperationDTO financialoperationDTO)
+
+        public async Task<FinancialOperationDTO> UpdateAsync(FinancialOperationDTO financialOperationDTO)
         {
-            if (string.IsNullOrWhiteSpace(financialoperationDTO.IdFinancialOperation.ToString()))
+            if (string.IsNullOrWhiteSpace(financialOperationDTO.IdFinancialOperation.ToString()))
             {
                 throw new ArgumentException("O campo 'IdFinancialOperation' é obrigatório para a atualização.");
             }
 
-            FinancialOperation financialoperation = _mapper.Map<FinancialOperation>(financialoperationDTO);
-            int result = await _financialOperationRepository.UpdateAsync(financialoperation);
+            FinancialOperation financialOperation = _mapper.Map<FinancialOperation>(financialOperationDTO);
+            int result = await _financialOperationRepository.UpdateAsync(financialOperation);
 
-            FinancialOperation updatedFinancialOperation = await _financialOperationRepository.GetByIdAsync(financialoperationDTO.IdFinancialOperation);
+            FinancialOperation updatedFinancialOperation = await _financialOperationRepository.GetByIdAsync(financialOperationDTO.IdFinancialOperation);
             return _mapper.Map<FinancialOperationDTO>(updatedFinancialOperation);
         }
-
     }
 }

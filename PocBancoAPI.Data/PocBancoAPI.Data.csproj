@@ -24,4 +24,8 @@
     <ProjectReference Include="..\PocBancoAPI.ViewModels\PocBancoAPI.ViewModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
