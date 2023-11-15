@@ -48,5 +48,55 @@ namespace PocBancoAPI.Tests
             // Assert
             Assert.AreEqual(expected.IdFinancialOperation, result.IdFinancialOperation);
         }
+
+        [Test]
+
+        public async Task InsertAsync_AccountDoesntExists_ShouldTrowValidationException()
+        {
+            //Arrange
+            _financialOperationRepositoryMock = new Mock<IFinancialOperationRepository>();
+            _accountRepositoryMock = new Mock<IAccountRepository>();
+            _mapperMock = new Mock<IMapper>();
+            _financialOperationRepositoryMock.Setup(x => x.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(new FinancialOperation());
+
+            _financialOperationBusiness = new FinancialOperationBusiness(
+                _financialOperationRepositoryMock.Object,
+                _accountRepositoryMock.Object,
+                _mapperMock.Object
+            );
+
+            FinancialOperationDTO financialOperation = new FinancialOperationDTO
+            {
+                IdAccount = 1
+            };
+
+            Assert.ThrowsAsync<ArgumentException>(() => _financialOperationBusiness.InsertAsync(financialOperation));
+        }
+
+        [Test]
+
+        public async Task InsertAsync_InvalidAccountId_ShouldTrowValidationException()
+        {
+            //Arrange
+            _financialOperationRepositoryMock = new Mock<IFinancialOperationRepository>();
+            _accountRepositoryMock = new Mock<IAccountRepository>();
+            _mapperMock = new Mock<IMapper>();
+            _financialOperationRepositoryMock.Setup(x => x.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(new FinancialOperation());
+
+            _financialOperationBusiness = new FinancialOperationBusiness(
+                _financialOperationRepositoryMock.Object,
+                _accountRepositoryMock.Object,
+                _mapperMock.Object
+            );
+
+            FinancialOperationDTO financialOperation = new FinancialOperationDTO
+            {
+                IdAccount = 0
+            };
+
+            ArgumentException exception = Assert.ThrowsAsync<ArgumentException>(() => _financialOperationBusiness.InsertAsync(financialOperation));
+
+            Assert.That(exception is not null);
+        }
     }
 }
